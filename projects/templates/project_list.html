@@ -2,9 +2,17 @@
 {% block content %}
 {% for project in projects %}
     <div class="container">
-    <br>
-        <br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
+        <div class="page-header">
+            <a href="{% url 'project_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <h1><a href="/">Post a new project</a></h1>
+        </div>
     {{ project }}
+     <div class="date">
+                {{ project.created_date }}
+            </div>
+            <h1><a href="">{{ project.project_title }}</a></h1>
+            <p>{{ project.short_pitch|linebreaksbr }}</p>
     </div>
 {% endfor %}
 {% endblock %}
