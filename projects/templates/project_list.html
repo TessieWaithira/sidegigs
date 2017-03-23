@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for project in projects %}
-    <div class="project">
-        <div class="date">
-            {{ post.created_date }}
-        </div>
-        <h1><a href="">{{ project.project_title }}</a></h1>
-        <p>{{ project.short_pitch|linebreaksbr }}</p>
+    <div class="container">
+    <br>
+        <br><br><br><br><br><br>
+    {{ project }}
     </div>
 {% endfor %}
 {% endblock %}

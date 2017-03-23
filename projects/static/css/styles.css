@@ -55,9 +55,14 @@ h2 {
 .nav {
 	background-color: #273140;
 }
-.footer {
-	background-color: #273140;
-}
+.footer
+  {
+   background-color:#273140;
+   position:fixed;
+   bottom:0;
+   height:2%;
+  }
+
 .text {
 	color: white;
 }
