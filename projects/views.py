@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
+from .models import Project
 # Create your views here.
 class HomePageView(TemplateView):
     def get(self, request):
