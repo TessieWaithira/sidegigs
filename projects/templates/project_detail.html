@@ -4,7 +4,10 @@
 <div class="container">
     <br><br><br><br><br><br><br>
     <div class="project">
-        <h1>{{ project.title }}</h1>
+        <a class="btn btn-default" href="{% url 'project_edit' pk=project.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'project_delete' pk=project.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.project_title }}</a></h1>
+        <h1>{{ project.project_title }}</h1>
         <p>{{ project.short_pitch|linebreaksbr }}</p>
     </div>
 </div>
