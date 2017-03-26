@@ -3,20 +3,8 @@
 <div>
 {% extends 'base.html' %}
 {% block content %}
-
       <form method="POST" class="post-form">
         {% csrf_token %}
-          <label>Name</label>
-          <input type="text" name="name" placeholder="Enter name"></br>
-          <label>Category</label>
-          <select>
-              <option>Web</option>
-              <option>Mobile</option>
-          </select></br>
-          <label>Email</label>
-          <input type="email" name="email" placeholder="Enter email">
-
-
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>

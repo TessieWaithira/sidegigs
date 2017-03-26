@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from .models import Project
 from django.utils import timezone
 from .forms import ProjectForm
+from django.contrib.auth import get_user
 
 
 # Create your views here.
