@@ -30,7 +30,7 @@ def project_new(request):
             project.project_owner = request.user
             project.created_date = timezone.now()
             project.save()
-            return redirect('project_detail', pk=project.pk)
+            return redirect('project_list')
     else:
         form = ProjectForm()
     return render(request, 'project_new.html', {'form': form})

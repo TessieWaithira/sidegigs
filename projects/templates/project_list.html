@@ -6,8 +6,8 @@
             <a href="{% url 'project_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
         </div>
     </div>
-    <div class="container text-center">
     {% for project in projects %}
+    <div class="container text-center">
         {{ project.created_date }}
             <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.project_title }}</a></h1>
             <p>{{ project.short_pitch|linebreaksbr }}</p>
