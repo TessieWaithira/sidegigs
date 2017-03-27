@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from .models import Project
 from django.utils import timezone
 from .forms import ProjectForm
-from django.contrib.auth import get_user
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -22,7 +22,7 @@ def project_detail(request, pk):
     project = get_object_or_404(Project, pk=pk)
     return render(request, 'project_detail.html', {'project': project})
 
-
+@login_required
 def project_new(request):
     if request.method == "POST":
         form = ProjectForm(request.POST)
@@ -36,7 +36,7 @@ def project_new(request):
         form = ProjectForm()
     return render(request, 'project_new.html', {'form': form})
 
-
+@login_required
 def project_edit(request, pk):
     project = get_object_or_404(Project, pk=pk)
     if request.method == "POST":
@@ -51,7 +51,7 @@ def project_edit(request, pk):
         form = ProjectForm(instance=project)
     return render(request, 'project_edit.html', {'form': form})
 
-
+@login_required
 def project_delete(request, pk):
     project = get_object_or_404(Project, pk=pk)
     project.delete()
