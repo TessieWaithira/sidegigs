@@ -46,7 +46,7 @@ def project_edit(request, pk):
             project.project_owner = request.user
             project.created_date = timezone.now()
             project.save()
-            return redirect('project_detail', pk=project.pk)
+            return redirect('project_list')
     else:
         form = ProjectForm(instance=project)
     return render(request, 'project_edit.html', {'form': form})

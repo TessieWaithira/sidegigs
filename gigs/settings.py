@@ -5,7 +5,7 @@ SECRET_KEY = 'lmm!v0*p3c9jy4mx(o^gxf58%d^8ucpjfj*n)6aa66$nq9%$$e'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-LOGIN_REDIRECT_URL = '/'
+
 
 
 INSTALLED_APPS = [

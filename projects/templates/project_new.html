@@ -3,10 +3,13 @@
 <div>
 {% extends 'base.html' %}
 {% block content %}
+
       <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
+       {% csrf_token %}
+         <p><label for="id_project_title">Project title:</label> <input id="id_project_title" maxlength="50"  class="form-control" name="project_title" type="text" /></p>
+<p><label for="id_short_pitch">Short pitch:</label> <textarea cols="40" id="id_short_pitch" class="form-control" name="short_pitch" rows="10">
+</textarea></p>
+        <center><button type="submit" class="save btn btn-info   ">Save</button></center>
+        </form>
 {% endblock %}
 </div>
