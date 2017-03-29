@@ -4,11 +4,12 @@
     <br><br><br><br><br><br><br>
         <div class="page-header">
             {% if user.is_authenticated %}
-                <div class="pull-right">
+                <div class="text-center">
+                    <p class="text-center">Hello {{ user.username }} these are the available projects</p><br>
                     <a href="{% url 'project_new' %}"><button class="btn btn-primary">Add Project</button></a>
                     <a href="{% url 'logout' %}"><button class="btn btn-primary">Logout</button></a>
                 </div>
-            <p class="text-center">Hello {{ user.username }} these are the available projects</p>
+
 
             {% else %}
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
