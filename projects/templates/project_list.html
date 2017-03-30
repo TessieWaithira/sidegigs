@@ -8,6 +8,10 @@
                     <p class="text-center">Hello {{ user.username }} these are the available projects</p><br>
                     <a href="{% url 'project_new' %}"><button class="btn btn-primary">Add Project</button></a>
                     <a href="{% url 'logout' %}"><button class="btn btn-primary">Logout</button></a>
+                     <form action="" method="GET">
+                         <input type="text"name="q" placeholder="Search project" value="{{ request.GET.q }}"/>
+                         <input type="submit" value="Search"/>
+                     </form>
                 </div>
 
 

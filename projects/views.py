@@ -1,8 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
-from django.http import HttpResponseRedirect
-from django.contrib.import auth
-from django.core.context_process import csrf
 from django.views.generic import TemplateView
 from .models import Project
 from django.utils import timezone
@@ -18,6 +15,9 @@ class HomePageView(TemplateView):
 
 def project_list(request):
     projects = Project.objects.all()
+    query = request.GET.get("q")
+    if query:
+        projects = projects.filter(project_title__icontains=query)
     return render(request, 'project_list.html', {'projects': projects})
 
 
@@ -59,20 +59,4 @@ def project_delete(request, pk):
     project = get_object_or_404(Project, pk=pk)
     project.delete()
     return redirect('project_list')
-
-def login(request):
-    c = {}
-    c.update(csrf(request))
-    return render('registration/login.html', c)
-
-def auth_view(request):
-    username = request.POST.get('username', '')
-    password = request.POST.get('password', '')
-    user = auth.authenticate(username=username, password=password)
-
-    if user is not None:
-        auth.login(request, user)
-        return HttpResponseRedirect('/account/loggedin')
-    else:
-        return HttpResponseRedirect('/account/invalid')
 
