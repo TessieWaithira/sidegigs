@@ -10,3 +10,6 @@ class Project(models.Model):
     short_pitch = models.TextField()
     created_date = models.DateTimeField(blank=True, null=True)
 
+    class Meta:
+        ordering = ["-created_date"]
+

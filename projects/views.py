@@ -5,6 +5,9 @@ from .models import Project
 from django.utils import timezone
 from .forms import ProjectForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 
 # Create your views here.
@@ -15,9 +18,22 @@ class HomePageView(TemplateView):
 
 def project_list(request):
     projects = Project.objects.all()
+    paginator = Paginator(projects, 2)
+
+    page = request.GET.get('page')
+    try:
+        projects = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        projects = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        projects = paginator.page(paginator.num_pages)
     query = request.GET.get("q")
     if query:
-        projects = projects.filter(project_title__icontains=query)
+        projects = projects.filter(Q(project_title__icontains=query)|
+                                   Q(short_pitch__icontains=query)
+                                   ).distinct()
     return render(request, 'project_list.html', {'projects': projects})
 
 
