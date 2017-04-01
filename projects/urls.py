@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^project/(?P<pk>\d+)/delete/$', views.project_delete, name='project_delete'),
     url(r'^accounts/profile/$', views.project_list, name='project_list'),
     url(r'^accounts/register/$', views.register, name='register'),
+    url(r'^accounts/edit_profile/$', views.edit_profile, name='edit_profile'),
 ]

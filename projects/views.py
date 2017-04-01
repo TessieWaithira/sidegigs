@@ -5,10 +5,11 @@ from .models import Project
 from django.utils import timezone
 from .forms import ProjectForm
 from .forms import RegistrationForm
+from .forms import EditProfileForm
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
@@ -25,17 +26,13 @@ def project_list(request):
                                    Q(short_pitch__icontains=query)
                                    ).distinct()
     paginator = Paginator(projects, 2)
-
     page = request.GET.get('page')
     try:
         projects = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
         projects = paginator.page(1)
     except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
         projects = paginator.page(paginator.num_pages)
-
     return render(request, 'project_list.html', {'projects': projects})
 
 
@@ -93,4 +90,12 @@ def register(request):
     return render(request, 'registration/account.html', {'form': form})
 
 
-
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('project_list')
+    else:
+        form = EditProfileForm(instance=request.user)
+    return render(request, 'registration/edit_profile.html', {'form': form})

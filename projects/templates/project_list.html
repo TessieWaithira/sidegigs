@@ -8,14 +8,11 @@
                     <p class="text-center">Hello {{ user.username }} these are the available projects</p><br>
                     <a href="{% url 'project_new' %}"><button class="btn btn-primary">Add Project</button></a>
                     <a href="{% url 'logout' %}"><button class="btn btn-primary">Logout</button></a></br></br>
-
                      <form action="" method="GET">
                          <input type="text"name="q" placeholder="Search project" value="{{ request.GET.q }}"/>
                          <input type="submit" value="Search"/>
                      </form>
                 </div>
-
-
             {% else %}
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
             {% endif %}
@@ -29,16 +26,12 @@
             <p>{{ project.short_pitch|linebreaksbr }}</p>
     </div>
     {% endfor %}
-
-     <div class="pagination">
+    <div class="pagination">
     <span class="step-links">
-
-            <a href="?page=1">previous</a>
-
+        <a href="?page=1">previous</a>
         <span class="current">
             Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
         </span>
-
         {% if projects.has_next %}
             <a href="?page={{ projects.next_page_number }}">next</a>
         {% endif %}
