@@ -1,40 +1,146 @@
-{% extends 'base.html' %}
-{% block content %}
-    <div class="container">
-    <br><br><br><br><br><br><br>
-        <div class="page-header">
-            {% if user.is_authenticated %}
-                <div class="text-center">
-                    <p class="text-center">Hello {{ user.username }} these are the available projects</p><br>
-                    <a href="{% url 'project_new' %}"><button class="btn btn-primary">Add Project</button></a>
-                    <a href="{% url 'logout' %}"><button class="btn btn-primary">Logout</button></a></br></br>
-                     <form action="" method="GET">
-                         <input type="text"name="q" placeholder="Search project" value="{{ request.GET.q }}"/>
-                         <input type="submit" value="Search"/>
-                     </form>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <script type="text/javascript" src="{%  static 'gigs_files/shares.json'  %}"></script><script type="text/javascript" src="{% static 'gigs_files/saved_resource' %}"></script><script type="text/javascript" src="{% static 'gigs_files/share' %}"></script><script type="text/javascript" src="{% static 'gigs_files/300lo.json' %}"></script><script type="text/javascript" src="{% static 'gigs_files/_ate.track.config_resp' %}"></script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Job board and aggregator for programming jobs.Sign up today to post jobs, get job alerts, save job postings and add notes to them, and receive messages from potential employers.">
+      
+      <!-- Twitter tags -->
+      <meta property="twitter:card" content="summary">
+      <meta property="twitter:site" content="@remotepython">
+      <title>Find remote Python jobs and developers. | RemotePython.com</title>
+      <!-- RSS Feeds -->
+      <link rel="alternate" type="application/rss+xml" title="Job Feed" href="https://www.remotepython.com/latest/jobs/feed/">
+      <link rel="alternate" type="application/rss+xml" title="Developer Profile Feed" href="https://www.remotepython.com/latest/developers/feed/">
+      <link rel="alternate" type="application/rss+xml" title="Blog Feed" href="https://www.remotepython.com/latest/blog/feed/">
+      <!-- Favicon -->
+      <link rel="apple-touch-icon" href="https://www.remotepython.com/static/images/apple-touch-icon.6928b9f43964.png">
+      <link rel="shortcut icon" href="https://www.remotepython.com/static/images/favicon.4671db5ec62b.ico" type="image/x-icon">
+      <link rel="stylesheet" href="{% static 'gigs_files/b8e219fb9ca2.css' %}" type="text/css">
+      <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
+
+   </head>
+   <body style="">
+      <!-- wrapper page -->
+      <div class="wrapper">
+         <!-- main-header -->
+         <header class="main-header">
+            <!-- main navbar -->
+            <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
+               <div class="container">
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                     <ul class="nav navbar-nav">
+                        <li><a href="{% url 'project_list' %}"><button class="btn btn-default">Find Jobs</button> </a> </li>
+                        <li><a href="{% url 'project_new' %}"><button class="btn btn-default">Post Project</button></a></li>
+                        <li><a href="{% url 'login' %}"><button class="btn btn-default">Get Alerts</button></a> </li>
+                     </ul>
+                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'login' %}"><button class="btn btn-default">Login</button></a> </li>
+                        <li><a href="{% url 'register' %}"><button class="btn btn-default">Sign up</button></a>
+                    </li>
+                     </ul>
+                  </div>
+               </div>
+            </nav>
+            <!-- end main navbar -->
+            <div class="hero-header">
+               <div class="inner-hero-header">
+                  <div class="container">
+                     <div class="text-center logo"> <a href="https://www.remotepython.com/"><img src="{% static 'gigs_files/logo.9769423100d5.png' %}" width="268px" height="108px" alt="Remote Python"></a></div>
+                     <div class="relative">
+                        <i class="fa fa-globe ic-fade-globe"></i>
+                        <!-- form search -->
+                        <form class="form-search-home" action="" method="GET">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <input class="form-control input-lg" name="q" placeholder="job title, skills, company name, or city" value="{{ request.GET.q }}">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                                 <button class="btn btn-t-primary btn-lg btn-theme btn-pill btn-block">Find a job</button>
+                           </div>
+                           <div class="text-center">
+                              <a href="https://www.djangoproject.com/" target="_blank">Powered by Django</a>
+                           </div>
+                        </form>
+                        <!-- end form search -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <!-- end main-header -->
+         <!-- body-content -->
+          <div class="body-content clearfix">
+            <div class="block-section bg-color1">
+               <div class="container">
+                  <p class="text-center">Current Jobs<a href="https://www.remotepython.com/jobs/alerts/subscribe/"><i class="fa fa-envelope text-danger"></i></a></p>
+                  <div class="box-list">
+                     <div class="row">
+                        <div class="item">
+                           <div class="row">
+                              <div class="col-md-8">
+                                {% for project in projects %}
+                                    <div class="container text-center">
+                                      {{ project.created_date }}
+                                      {{ project.project_owner }}
+                                      <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.project_title }}</a></h1>
+                                      <p>{{ project.short_pitch|linebreaksbr|truncatechars:80 }}</p>
+                                    </div>
+                                {% endfor %}                                 
+                              </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="container text-center">
+                       <div class="pagination">
+                         <span class="step-links">
+                         <a href="?page=1">previous</a>
+                         <span class="current">
+                          Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
+                         </span>
+                        {% if projects.has_next %}
+                        <a href="?page={{ projects.next_page_number }}">next</a>
+                        {% endif %}
+                         </span>
+                      </div>                      
+                    </div>                    
+                  </div>
                 </div>
-            {% else %}
-            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-            {% endif %}
-        </div>
-    </div>
-    {% for project in projects %}
-    <div class="container text-center">
-        {{ project.created_date }}
-        {{ project.project_owner }}
-            <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.project_title }}</a></h1>
-            <p>{{ project.short_pitch|linebreaksbr }}</p>
-    </div>
-    {% endfor %}
-    <div class="pagination">
-    <span class="step-links">
-        <a href="?page=1">previous</a>
-        <span class="current">
-            Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
-        </span>
-        {% if projects.has_next %}
-            <a href="?page={{ projects.next_page_number }}">next</a>
-        {% endif %}
-    </span>
-    </div>
-{% endblock %}
+            </div>
+          </div>
+          
+      <!--end body-content -->
+      <!-- main-footer -->
+      <footer class="main-footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-6">
+                  <ul class="list-inline link-footer text-center-xs">
+                     <li><a href="https://www.remotepython.com/">Home</a></li>
+                     <li><a href="https://www.remotepython.com/blog/">Blog</a></li>
+                     <li><a href="https://www.remotepython.com/about/">About Us</a></li>
+                     <li><a href="https://www.remotepython.com/contact/">Contact Us</a></li>
+                  </ul>
+               </div>
+               <div class="col-sm-6 ">
+                  <p class="text-center-xs hidden-lg hidden-md hidden-sm">Stay Connected</p>
+                  <div class="socials text-right text-center-xs">
+                     <a href="https://github.com/TessieWaithira" target="_blank"><i class="fa fa-github"></i></a>
+                     <a href="https://twitter.com/Tessie_Waithira" target="_blank"><i class="fa fa-twitter"></i></a>
+                     <a href="https://web.facebook.com/tessie.waithira" target="_blank"><i class="fa fa-facebook"></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- end main-footer -->
+      <!-- end wrapper page -->
+    
+   </body>
+</html>

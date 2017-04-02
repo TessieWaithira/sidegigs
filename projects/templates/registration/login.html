@@ -1,33 +1,139 @@
-<br><br><br>
-{% extends "base.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <script type="text/javascript" src="{%  static 'gigs_files/shares.json'  %}"></script><script type="text/javascript" src="{% static 'gigs_files/saved_resource' %}"></script><script type="text/javascript" src="{% static 'gigs_files/share' %}"></script><script type="text/javascript" src="{% static 'gigs_files/300lo.json' %}"></script><script type="text/javascript" src="{% static 'gigs_files/_ate.track.config_resp' %}"></script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Job board and aggregator for programming jobs.Sign up today to post jobs, get job alerts, save job postings and add notes to them, and receive messages from potential employers.">
+
+      <!-- Twitter tags -->
+      <meta property="twitter:card" content="summary">
+      <meta property="twitter:site" content="@remotepython">
+      <title>Find remote Python jobs and developers. | RemotePython.com</title>
+      <!-- RSS Feeds -->
+      <link rel="alternate" type="application/rss+xml" title="Job Feed" href="https://www.remotepython.com/latest/jobs/feed/">
+      <link rel="alternate" type="application/rss+xml" title="Developer Profile Feed" href="https://www.remotepython.com/latest/developers/feed/">
+      <link rel="alternate" type="application/rss+xml" title="Blog Feed" href="https://www.remotepython.com/latest/blog/feed/">
+      <!-- Favicon -->
+      <link rel="apple-touch-icon" href="https://www.remotepython.com/static/images/apple-touch-icon.6928b9f43964.png">
+      <link rel="shortcut icon" href="https://www.remotepython.com/static/images/favicon.4671db5ec62b.ico" type="image/x-icon">
+      <link rel="stylesheet" href="{% static 'gigs_files/b8e219fb9ca2.css' %}" type="text/css">
+      <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
+
+   </head>
+   <body style="">
+      <!-- wrapper page -->
+      <div class="wrapper">
+         <!-- main-header -->
+         <header class="main-header">
+            <!-- main navbar -->
+            <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
+               <div class="container">
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                     <ul class="nav navbar-nav">
+                        <li><a href="https://www.remotepython.com/jobs/"><strong>Find Jobs</strong></a></li>
+                        <li><a href="{% url 'project_new' %}"><button class="btn btn-default">Post Project</button></a></li>
+                        <li><a href="https://www.remotepython.com/jobs/alerts/subscribe/"><strong>Job Alerts</strong></a></li>
+                     </ul>
+                     <ul class="nav navbar-nav navbar-right">
+                        <li class="link-btn"><a href="https://www.remotepython.com/accounts/login/"><span class="btn btn-theme btn-pill btn-xs btn-line">Log In</span></a></li>
+                        <li><a href="{% url 'register' %}"><button class="btn btn-default">Sign up</button></a>
+                    </li>
+                     </ul>
+                  </div>
+               </div>
+            </nav>
 <div class="container">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-{% block content %}
+  <div class="white-space-50"></div>
+  <div class="text-center logo no-margin"> <a href="https://www.remotepython.com/"><img src="./login_files/logo.9769423100d5.png" width="268px" height="108px" alt="Remote Python"></a></div>
+  <div class="white-space-50"></div>
+</div>
+
+
+      </header><!-- end main-header -->
+
+      <!-- body-content -->
+      <div class="body-content clearfix">
+
+<div class="block-section bg-color4">
+  <div class="container">
+    <div class="panel panel-md">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Log In</h3>
+            <div class="white-space-30"></div>
+
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
 
-    <div class="container vertical-center">
-        <form method="post" action="/accounts/login/">
-    {% csrf_token %}
-        <table>
-        <tr>
-            <td><label for="id_username">Username:</label></td>
-            <td><input class="form-control" id="id_username" maxlength="254" name="username" type="text" /></td>
-        </tr>
-        <tr>
-            <td><label for="id_password">Password:</label></td>
-            <td><input class="form-control" id="id_password" name="password" type="password" /></td>
-        </tr>
-        </table>
-            <a href="{% url 'project_list' %}"><button class="btn btn-primary" value="login">Login</button></a>
-        </form>
+            <!-- form login -->
+             <form id="login-form" method="post" action="/accounts/login/">
+              {% csrf_token %}
 
+              <div class="form-group">
+                <label for="id_email">Username</label>
+                <input type="text" name="username" class="form-control" id="id_username" placeholder="Username" tabindex="1" required="">
+
+              </div>
+              <div class="form-group">
+                <label for="id_email">Password</label>
+                <input type="password" name="password" class="form-control" id="id_password" placeholder="Password" tabindex="2" required="">
+
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12 text-right">
+                    <p class="help-block"><a href="https://www.remotepython.com/password/reset/">Forgot password?</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group no-margin">
+               <a href="{% url 'project_list' %}"> <button type="submit" class="btn btn-theme btn-lg btn-t-primary btn-block" tabindex="3" value="login">Log In</button></a>
+              </div>
+            </form><!-- form login -->
+
+          </div>
+        </div>
+      </div>
     </div>
-{% endblock %}
-        </div>
-        <div class="col-md-4"></div>
-        </div>
-        </div>
+
+    <div class="white-space-20"></div>
+    <div class="text-center color-white">Not a member? &nbsp; <a href="https://www.remotepython.com/accounts/signup/" class="link-white"><strong>Create an account!</strong></a></div>
+  </div>
+</div>
+
+             </div>
+
+      <!--end body-content -->
+      <!-- main-footer -->
+      <footer class="main-footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-6">
+                  <ul class="list-inline link-footer text-center-xs">
+                     <li><a href="https://www.remotepython.com/">Home</a></li>
+                     <li><a href="https://www.remotepython.com/blog/">Blog</a></li>
+                     <li><a href="https://www.remotepython.com/about/">About Us</a></li>
+                     <li><a href="https://www.remotepython.com/contact/">Contact Us</a></li>
+                  </ul>
+               </div>
+               <div class="col-sm-6 ">
+                  <p class="text-center-xs hidden-lg hidden-md hidden-sm">Stay Connected</p>
+                  <div class="socials text-right text-center-xs">
+                     <a href="https://github.com/remotepython" target="_blank"><i class="fa fa-github"></i></a>
+                     <a href="https://twitter.com/remotepython" target="_blank"><i class="fa fa-twitter"></i></a>
+                     <a href="https://www.facebook.com/remotepython" target="_blank"><i class="fa fa-facebook"></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- end main-footer -->
+      <!-- end wrapper page -->
+
+   </body>
+</html>

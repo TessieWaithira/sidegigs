@@ -10,6 +10,8 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -25,7 +27,7 @@ def project_list(request):
         projects = projects.filter(Q(project_title__icontains=query) |
                                    Q(short_pitch__icontains=query)
                                    ).distinct()
-    paginator = Paginator(projects, 2)
+    paginator = Paginator(projects, 5)
     page = request.GET.get('page')
     try:
         projects = paginator.page(page)
@@ -87,7 +89,15 @@ def register(request):
             return redirect('project_list')
     else:
         form = RegistrationForm()
-    return render(request, 'registration/account.html', {'form': form})
+    return render(request, 'registration/signup.html', {'form': form})
+
+
+def view_profile(request, pk=None):
+    if pk:
+        user = User.objects.get(pk=pk)
+    else:
+        user = request.user
+    return render(request, 'registration/profile.html', {'user': user})
 
 
 def edit_profile(request):
@@ -99,3 +109,20 @@ def edit_profile(request):
     else:
         form = EditProfileForm(instance=request.user)
     return render(request, 'registration/edit_profile.html', {'form': form})
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('view_profile')
+        else:
+            return redirect('change_password')
+    else:
+        form = PasswordChangeForm(user=request.user)
+
+        args = {'form': form}
+        return render(request, 'registration/change_password.html', args)
