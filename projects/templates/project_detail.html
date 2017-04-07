@@ -2,16 +2,17 @@
 
 {% block content %}
 <div class="container">
-    <br><br><br><br><br><br><br>
-    <div class="project">
-        {% if user.is_authenticated %}
-            <h1 class="text-center">{{ project.project_title }}</h1>
+    <div class="text-center">
+        <h1 class="text-center">{{ project.project_title|upper }}</h1>
         <p>{{ project.short_pitch|linebreaksbr }}</p>
-        {% else %}
-        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+        {% if user.is_authenticated %}
+        <div class="text-center">
+             <a href="{% url 'project_edit' pk=project.pk %}"><button class="btn btn-t-primary btn-theme">Edit</button></a>
+        <a href="{% url 'project_delete' pk=project.pk %}"><button class="btn btn-theme btn-danger">Delete</button></a>
+         {% else %}
+             <a href="{% url 'project_apply' pk=project.pk %}"><button class="btn btn-theme btn-t-primary">Apply </button></a>
         {% endif %}
-         <a class="btn btn-primary btn-lg" href="{% url 'project_edit' pk=project.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="btn btn-danger btn-lg" href="{% url 'project_delete' pk=project.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
     </div>
 </div>
 {% endblock %}

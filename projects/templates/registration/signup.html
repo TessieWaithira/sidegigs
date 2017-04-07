@@ -1,23 +1,36 @@
-<br><br><br>
+
 
 <div>
 {% extends 'base.html' %}
 {% block content %}
-       <div class="container">
-            <div class="row text-center">
+
+<div class="block-section bg-color4">
+  <div class="container">
+    <div class="panel panel-md">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center">Create account</p>
+
+
     <form method="POST" class="post-form">
        {% csrf_token %}
-        <p><label for="id_username">Username:</label> <input id="id_username" maxlength="30" name="username" type="text" class="form-control"/> <span class="helptext">Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.</span></p>
-        <p><label for="id_first_name">First name:</label> <input id="id_first_name" maxlength="30" name="first_name" type="text"  class="form-control" /></p>
-        <p><label for="id_last_name">Last name:</label> <input id="id_last_name" maxlength="30" name="last_name" type="text" class="form-control"/></p>
+        <p><label for="id_username">Username:</label> <input id="id_username" maxlength="30" name="username" type="text" class="form-control"/></p>
         <p><label for="id_email">Email:</label> <input id="id_email" name="email" type="email" class="form-control"/></p>
         <p><label for="id_password1">Password:</label> <input id="id_password1" name="password1" type="password" class="form-control" /></p>
-        <p><label for="id_password2">Password confirmation:</label> <input id="id_password2" name="password2" type="password"  class="form-control"/> <span class="helptext">Enter the same password as before, for verification.</span></p>
-        <a href="{% url 'project_list' %}"><button class="btn btn-primary" value="signup">Signup</button></a>
-        <a href="{% url 'login' %}"><button class="btn btn-primary" value="signup">Signup</button></a>
+        <p><label for="id_password2">Password confirmation:</label> <input id="id_password2" name="password2" type="password"  class="form-control"/><br>
+        <a href="{% url 'project_list' %}"><button type="submit" class="btn btn-theme  btn-t-primary btn-block" tabindex="3" value="signup">Signup</button></a>
+
     </form>
-            </div>
-       </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="white-space-20"></div>
+    <div class="text-center color-white">Already a member? &nbsp;<a href="{% url 'login' %}"><strong class="color-white">Login</strong></a></div>
+    </div>
+
 {% endblock %}
 </div>
 

@@ -33,55 +33,29 @@
                <div class="container">
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul class="nav navbar-nav">
-                        <li><a href="https://www.remotepython.com/jobs/"><strong>Find Jobs</strong></a></li>
-                        <li><a href="{% url 'project_new' %}"><button class="btn btn-default">Post Project</button></a></li>
-                        <li><a href="https://www.remotepython.com/jobs/alerts/subscribe/"><strong>Job Alerts</strong></a></li>
+                        <li><a href="{% url 'project_list' %}"><button class="btn btn-default">Find Jobs</button> </a> </li>
+                        <li><a href="{% url 'project_new' %}"><button class="btn btn-default ">Post Project</button></a></li>
+                        <li><a href="{% url 'login' %}"><button class="btn btn-default">Get Alerts</button></a> </li>
                      </ul>
                      <ul class="nav navbar-nav navbar-right">
-                        <li class="link-btn"><a href="https://www.remotepython.com/accounts/login/"><span class="btn btn-theme btn-pill btn-xs btn-line">Log In</span></a></li>
+                        <li><a href="{% url 'login' %}"><button class="btn btn-default">Login</button></a> </li>
                         <li><a href="{% url 'register' %}"><button class="btn btn-default">Sign up</button></a>
                     </li>
                      </ul>
                   </div>
                </div>
             </nav>
+            <!-- end main navbar -->
 <div class="container">
   <div class="white-space-50"></div>
-  <div class="text-center logo no-margin"> <a href="https://www.remotepython.com/"><img src="./login_files/logo.9769423100d5.png" width="268px" height="108px" alt="Remote Python"></a></div>
-  <div class="white-space-50"></div>
+  <h3 class="text-center">Sidegigs</h3>
+    <div class="white-space-50"></div>
 </div>
 
 
       </header><!-- end main-header -->
     {% block content %}
     {% endblock %}
-
-< <!--end body-content -->
-      <!-- main-footer -->
-      <footer class="main-footer">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-6">
-                  <ul class="list-inline link-footer text-center-xs">
-                     <li><a href="https://www.remotepython.com/">Home</a></li>
-                     <li><a href="https://www.remotepython.com/blog/">Blog</a></li>
-                     <li><a href="https://www.remotepython.com/about/">About Us</a></li>
-                     <li><a href="https://www.remotepython.com/contact/">Contact Us</a></li>
-                  </ul>
-               </div>
-               <div class="col-sm-6 ">
-                  <p class="text-center-xs hidden-lg hidden-md hidden-sm">Stay Connected</p>
-                  <div class="socials text-right text-center-xs">
-                     <a href="https://github.com/remotepython" target="_blank"><i class="fa fa-github"></i></a>
-                     <a href="https://twitter.com/remotepython" target="_blank"><i class="fa fa-twitter"></i></a>
-                     <a href="https://www.facebook.com/remotepython" target="_blank"><i class="fa fa-facebook"></i></a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!-- end main-footer -->
-      <!-- end wrapper page -->
 
    </body>
 </html>

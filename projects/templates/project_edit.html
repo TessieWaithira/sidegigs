@@ -1,13 +1,22 @@
-<br><br><br>
+
 
 <div>
 {% extends 'base.html' %}
 {% block content %}
-      <form method="POST" class="post-form">
+<div class="container">
+<div class="row text-center">
+
+     <form method="POST" class="post-form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <p><label for="id_project_title">Project title:</label> <input id="id_project_title" maxlength="50" name="project_title" type="text" class="form-control" value="{{ project.project_title }}" required /></p>
+<p><label for="id_short_pitch">Short pitch:</label> <textarea cols="40" id="id_short_pitch" name="short_pitch" rows="10" class="form-control" required>
+    {{ project.short_pitch }}
+</textarea></p>
+        <button type="submit" class="save btn btn-t-primary btn-theme">Save</button>
     </form>
+</div>
+
+</div>
 {% endblock %}
 </div>
 

@@ -95,6 +95,8 @@ ENV/
 
 #local settings
 /gigs/local_settings.py
+# static files
+/projects/static
 
 #excuse IDE
 .idea

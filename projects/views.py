@@ -5,19 +5,19 @@ from .models import Project
 from django.utils import timezone
 from .forms import ProjectForm
 from .forms import RegistrationForm
-from .forms import EditProfileForm
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 # Create your views here.
 class HomePageView(TemplateView):
     def get(self, request):
-        return render(request, 'index.html')
+        return render(request, 'project_list.html')
 
 
 def project_list(request):
@@ -52,6 +52,8 @@ def project_new(request):
             project.project_owner = request.user
             project.created_date = timezone.now()
             project.save()
+
+            messages.success(request, 'Post added successfully')
             return redirect('project_list')
     else:
         form = ProjectForm()
@@ -70,8 +72,8 @@ def project_edit(request, pk):
             project.save()
             return redirect('project_list')
     else:
-        form = ProjectForm(instance=project)
-    return render(request, 'project_edit.html', {'form': form})
+        context = {'project': project}
+    return render(request, 'project_edit.html', context)
 
 
 @login_required
@@ -79,6 +81,12 @@ def project_delete(request, pk):
     project = get_object_or_404(Project, pk=pk)
     project.delete()
     return redirect('project_list')
+
+
+def project_apply(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    context = {'project': project}
+    return render(request, 'project_apply.html', context)
 
 
 def register(request):
@@ -90,39 +98,3 @@ def register(request):
     else:
         form = RegistrationForm()
     return render(request, 'registration/signup.html', {'form': form})
-
-
-def view_profile(request, pk=None):
-    if pk:
-        user = User.objects.get(pk=pk)
-    else:
-        user = request.user
-    return render(request, 'registration/profile.html', {'user': user})
-
-
-def edit_profile(request):
-    if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('project_list')
-    else:
-        form = EditProfileForm(instance=request.user)
-    return render(request, 'registration/edit_profile.html', {'form': form})
-
-
-def change_password(request):
-    if request.method == 'POST':
-        form = PasswordChangeForm(data=request.POST, user=request.user)
-
-        if form.is_valid():
-            form.save()
-            update_session_auth_hash(request, form.user)
-            return redirect('view_profile')
-        else:
-            return redirect('change_password')
-    else:
-        form = PasswordChangeForm(user=request.user)
-
-        args = {'form': form}
-        return render(request, 'registration/change_password.html', args)

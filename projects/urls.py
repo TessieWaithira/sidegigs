@@ -8,9 +8,8 @@ urlpatterns = [
     url(r'^project/(?P<pk>\d+)/edit$', views.project_edit, name='project_edit'),
     url(r'^project_new/$', views.project_new, name='project_new'),
     url(r'^project/(?P<pk>\d+)/delete/$', views.project_delete, name='project_delete'),
+    url(r'^project/(?P<pk>\d+)/apply/$', views.project_apply, name='project_apply'),
     url(r'^accounts/profile/$', views.project_list, name='project_list'),
     url(r'^accounts/register/$', views.register, name='register'),
-    url(r'^profile/$', views.view_profile, name='view_profile'),
-    url(r'^accounts/edit_profile/$', views.edit_profile, name='edit_profile'),
-    url(r'^accounts/change_password/$', views.change_password, name='change_password'),
+
 ]

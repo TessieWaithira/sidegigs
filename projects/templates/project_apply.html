@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+      <!-- body-content -->
+      <div class="body-content clearfix">
+
+<div class="bg-color1 block-section line-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+          <h2 class="text-center">
+      Interested in this job?
+        </h2>
+      <p class="text-center">Enter your email and we will get back to you</p>
+        <form method="post" action="" novalidate>
+         {% csrf_token %}
+          <div class="form-group">
+            <label for="id_email">Email*</label>
+            <input id="id_email" type="text" name="email" value="" class="form-control" >
+            <p class="text-center">Enter a category you want to receive job alerts on</p>
+            <label for="id_category">Category*</label>
+              <select name="category">
+                  <option value="android">Android</option>
+                  <option value="web">Web</option>
+                  <option value="ui/ux">UI/UX</option>
+              </select>
+          </div>
+
+          <div class="form-group text-center">
+
+            <button type="submit" class="btn btn-theme btn-long btn-t-primary ">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div><!--end body-content -->
+
+    </div>
+{% endblock %}

@@ -5286,32 +5286,7 @@ a.list-group-item-danger.active:focus {
   margin-bottom: 0;
   line-height: 1.3;
 }
-.panel {
-  margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-}
-.panel-body {
-  padding: 15px;
-}
-.panel-heading {
-  padding: 10px 15px;
-  border-bottom: 1px solid transparent;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.panel-heading > .dropdown .dropdown-toggle {
-  color: inherit;
-}
-.panel-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 16px;
-  color: inherit;
-}
+
 .panel-title > a,
 .panel-title > small,
 .panel-title > .small,
@@ -9123,9 +9098,12 @@ a:focus {
 /* 3.e panel
 ----------------------------------------------------------------------------- */
 .panel.panel-md {
-  max-width: 400px;
+  max-width: 400px; 
   margin: 0 auto;
 }
+.panel {
+  }
+
 .panel-body-lg {
   padding: 20px;
 }
@@ -9622,7 +9600,7 @@ a:focus {
   background-size: cover;
   overflow: hidden;
   position: relative;
-  min-height: 540px;
+  min-height: 300px;
 }
 .main-header .hero-header:before {
   content: "";

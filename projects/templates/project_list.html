@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <script type="text/javascript" src="{%  static 'gigs_files/shares.json'  %}"></script><script type="text/javascript" src="{% static 'gigs_files/saved_resource' %}"></script><script type="text/javascript" src="{% static 'gigs_files/share' %}"></script><script type="text/javascript" src="{% static 'gigs_files/300lo.json' %}"></script><script type="text/javascript" src="{% static 'gigs_files/_ate.track.config_resp' %}"></script>
@@ -46,11 +46,12 @@
                </div>
             </nav>
             <!-- end main navbar -->
-            <div class="hero-header">
+
                <div class="inner-hero-header">
                   <div class="container">
-                     <div class="text-center logo"> <a href="https://www.remotepython.com/"><img src="{% static 'gigs_files/logo.9769423100d5.png' %}" width="268px" height="108px" alt="Remote Python"></a></div>
-                     <div class="relative">
+                      <br>
+                     <h3 class="text-center">Sidegigs </h3>
+                    <div class="relative">
                         <i class="fa fa-globe ic-fade-globe"></i>
                         <!-- form search -->
                         <form class="form-search-home" action="" method="GET">
@@ -61,37 +62,52 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="form-group">
-                                 <button class="btn btn-t-primary btn-lg btn-theme btn-pill btn-block">Find a job</button>
+                            <br>
+                           <div class="form-group text-center">
+                                 <button class="btn btn-t-primary  btn-theme ">Find a job</button>
                            </div>
-                           <div class="text-center">
-                              <a href="https://www.djangoproject.com/" target="_blank">Powered by Django</a>
-                           </div>
+                            <br>
+                            <br>
+
                         </form>
                         <!-- end form search -->
                      </div>
                   </div>
                </div>
-            </div>
+
          </header>
          <!-- end main-header -->
          <!-- body-content -->
           <div class="body-content clearfix">
             <div class="block-section bg-color1">
                <div class="container">
-                  <p class="text-center">Current Jobs<a href="https://www.remotepython.com/jobs/alerts/subscribe/"><i class="fa fa-envelope text-danger"></i></a></p>
+               <div class="page-header">
+            {% if user.is_authenticated %}
+                <div class="text-center">
+                    <p class="text-center">Hello {{ user.username }} these are the available projects</p><br>
+                    <a href="{% url 'project_new' %}"><button class="btn btn-t-primary btn-theme">Add Project</button></a>
+                    <a href="{% url 'logout' %}"><button class="btn btn-t-primary btn-theme">Logout</button></a></br></br>
+
+                </div>
+
+            {% endif %}
+        </div>
+
                   <div class="box-list">
                      <div class="row">
                         <div class="item">
                            <div class="row">
-                              <div class="col-md-8">
+                              <div class="col-md-">
                                 {% for project in projects %}
-                                    <div class="container text-center">
+                                    <div class="text-center">
                                       {{ project.created_date }}
                                       {{ project.project_owner }}
-                                      <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.project_title }}</a></h1>
+
+                                      <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.project_title|upper }}</a></h1>
                                       <p>{{ project.short_pitch|linebreaksbr|truncatechars:80 }}</p>
+                                    {{ project.project_category }}
                                     </div>
+                                    <hr class="line-color">
                                 {% endfor %}                                 
                               </div>
                            </div>
