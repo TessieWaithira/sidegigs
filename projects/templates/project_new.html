@@ -1,13 +1,6 @@
-<div>
+<div xmlns="http://www.w3.org/1999/html">
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container-fluid text-center1">
-            <div class="col-lg-12">
-                <h1 >Post Project</h1>
-
-            </div>
-
-        </div>
     </div>
     <div class="container">
         <div class="row text-center">
@@ -17,28 +10,30 @@
               <p>Project Title*</p>
             <input id="id_project_title" type="text" name="project_title" value="" class="form-control" placeholder="Example: Android/Web app">
           </div>
-          <div class="form-group">
-              <p>Short Description*</p>
-            <textarea cols="10" id="id_short_pitch" class="form-control" name="short_pitch" rows="10"> </textarea></p>
-          </div>
-          <div class="form-group">
-               <p>Enter a category your job category*</p>
-            <label for="id_category">Category*</label>
-              <select name="category">
+                 <div class="form-group">
+            <p>Category*
+                <select name="category" id="project_category">
                   <option value="android">Android</option>
                   <option value="web">Web</option>
                   <option value="ui/ux">UI/UX</option>
               </select>
+            </p>
+
           </div>
+          <div class="form-group">
+              <p>Short Description*</p>
+            <textarea cols="2" id="id_short_pitch" class="form-control" name="short_pitch" rows="10"> </textarea></p>
+          </div>
+
 
           <div class="form-group">
-
-              <button type="submit" class="btn btn-t-primary btn-theme">Submit</button>
-
+              <a href="{% url 'project_list' %}"></a><button type="submit" class="btn btn-t-primary btn-theme">Submit</button></a>
           </div>
-
         </form> <!-- End form post/update a job -->
+
         </div>
     </div>
+       <div class="white-space-50"></div>
+
 {% endblock %}
 </div>

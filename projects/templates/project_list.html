@@ -1,6 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
    <head>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,13 +28,13 @@
                <div class="container">
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul class="nav navbar-nav">
-                        <li><a href="{% url 'project_list' %}"><button class="btn btn-default">Find Jobs</button> </a> </li>
-                        <li><a href="{% url 'project_new' %}"><button class="btn btn-default">Post Project</button></a></li>
-                        <li><a href="{% url 'login' %}"><button class="btn btn-default">Get Alerts</button></a> </li>
+                        <li><a href="{% url 'project_list' %}"><h3>Find Jobs</h3> </a> </li>
+                        <li><a href="{% url 'project_new' %}"><h3>Post Project</h3></a></li>
+                        <li><a href="{% url 'login' %}"><h3>Get Alerts</h3></a> </li>
                      </ul>
                      <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'login' %}"><button class="btn btn-default">Login</button></a> </li>
-                        <li><a href="{% url 'register' %}"><button class="btn btn-default">Sign up</button></a>
+                        <li><a href="{% url 'login' %}"><h3>Login</h3></a> </li>
+                        <li><a href="{% url 'register' %}"><h3>Sign up</h3></a>
                     </li>
                      </ul>
                   </div>
@@ -74,18 +75,15 @@
                     <div class="relative">
                         <i class="fa fa-globe ic-fade-globe"></i>
                         <!-- form search -->
-                        <form class="form-search-home" action="" method="GET">
-                           <div class="row">
-                              <div class="col-md-12">
+                        <form class="form" action="" method="GET">
+                           <div class="row text-center">
                                  <div class="form-group">
-                                    <input class="form-control input-lg" name="q" placeholder="job title, skills, company name, or city" value="{{ request.GET.q }}">
+                                    <input name="q" placeholder="job title, skills" value="{{ request.GET.q }}">
+                                      <button class="btn btn-t-primary">Search</button>
                                  </div>
-                              </div>
+                            </br>
                            </div>
-                            <br>
-                           <div class="form-group text-center">
-                                 <button class="btn btn-t-primary  btn-theme ">Search</button>
-                           </div>
+
 
                         </form>
                         <!-- end form search -->
@@ -109,30 +107,21 @@
                 </div>
             {% endif %}
                 </div>
-                  <div class="box-list">
+                  <div class="container-fluid">
                      <div class="row">
                         <div class="item">
                            <div class="row">
                               <div class="col-md-12">
                                 {% for project in projects %}
-                                    <div class="card ">
-                                        <div class="container">
-                                            <div class="text-center">
-                                                 {{ project.created_date }}
-                                             {{ project.project_owner }}
-                                            </div>
-                                        </div>
-                                        <div class="container">
-                                            <div class="text-center">
-                                                <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.project_title|upper }}</a></h1>
-                                             <p>{{ project.short_pitch|linebreaksbr|truncatechars:80 }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="container center">
-                                             <div class="text-center">
-                                                 {{ project.project_category }}
-                                             </div>
-                                        </div>
+                                    <div class="card text-center ">
+                                         <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.project_title|upper }}</a></h1>
+                                         <p>{{ project.short_pitch|linebreaksbr|truncatechars:80 }}</p>
+                                        <p class="pull-left">  {{ project.project_category }}</p>
+                                        <p class="pull-right"> {{ project.created_date }}
+                                        {{ project.project_owner }}</p>
+                                        </br>
+                                    <div class="white-space-10"></div>
+
 
                                     </div>
                                     <hr class="line-color">
@@ -146,7 +135,7 @@
                          <span class="step-links">
                          <a href="?page=1">previous</a>
                          <span class="current">
-                          Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
+                          Page {{ projects.number }} of {{ projects.paginator.num_pages }}
                          </span>
                         {% if projects.has_next %}
                         <a href="?page={{ projects.next_page_number }}">next</a>

@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ('project_title', 'short_pitch')
+        fields = ('project_title', 'short_pitch', 'project_category')
 
 
 class RegistrationForm(UserCreationForm):

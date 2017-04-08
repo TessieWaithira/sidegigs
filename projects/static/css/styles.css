@@ -47,7 +47,9 @@ h2 {
 }
 .navbar { margin-bottom:0px !important; }
 .navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
-.navbar {min-height:50px !important}
+.navbar {
+    min-height:70px !important
+}
 .carousel-caption { margin-top:0px !important }
 .carousel-caption{
   padding-bottom: 300px;
@@ -69,9 +71,7 @@ min-height: 80px;
 }
 
 
-.nav {
-	background-color: #273140;
-}
+
 .footer
   {
    background-color:#273140;
@@ -82,13 +82,14 @@ min-height: 80px;
 
 .card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: #23527c;
     transition: 0.3s;
+    border-color: #b52525;
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
 }
 
 /* Add some padding inside the card container */

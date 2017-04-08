@@ -12,6 +12,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from email import Sdk
 
+
 # Create your views here.
 class HomePageView(TemplateView):
     def get(self, request):
@@ -105,7 +106,8 @@ def register(request):
         username = request.POST['username']
         email = Sdk('https://eddymens.herokuapp.com', '848c7058c4151ef9002361f9dc922dbb')
         output = email.add_data('send_email', 'email',
-                                {'email': send_to, 'subject': 'Hi '+username, 'body': 'Thank you <b>soo</b> much for signing up'})
+                                {'email': send_to, 'subject': 'Hi ' + username,
+                                 'body': 'Thank you <b>soo</b> much for signing up'})
         print output
         if form.is_valid():
             form.save()
