@@ -2,32 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd887ec1-597a-42be-be49-d78630f45b79" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/email.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/0788591f3e776af138c46b5d0bcf3dba" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/300lo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/31394eafc11646758398f00e245791f9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/489ae0644e42.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/5663a87dd96f05804570fc5b5aec2516" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/_ate.track.config_resp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/addthis_widget.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/analytics.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/ce7272dce262a101e92a18a981721b1e" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/d5bfa7b34e12972aa548106277219454" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/fbevents.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/layers.0da87076074724862c1b.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/logo.9769423100d5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/saved_resource" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/sh.0d19417fd0a004d73df6a35b.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/share" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/static/gigs_files/shares.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/static/css/styles.css" afterPath="$PROJECT_DIR$/projects/static/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/static/gigs_files/b8e219fb9ca2.css" afterPath="$PROJECT_DIR$/projects/static/gigs_files/b8e219fb9ca2.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/templates/base.html" afterPath="$PROJECT_DIR$/projects/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/templates/project_list.html" afterPath="$PROJECT_DIR$/projects/templates/project_list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/templates/registration/login.html" afterPath="$PROJECT_DIR$/projects/templates/registration/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/templates/registration/signup.html" afterPath="$PROJECT_DIR$/projects/templates/registration/signup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/views.py" afterPath="$PROJECT_DIR$/projects/views.py" />
     </list>
     <ignored path="gigs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="project_list.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="project_list.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/templates/project_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="186" column="7" selection-start-line="186" selection-start-column="7" selection-end-line="186" selection-end-column="7" />
+            <state relative-caret-position="117">
+              <caret line="163" column="32" selection-start-line="163" selection-start-column="32" selection-end-line="163" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -77,8 +56,18 @@
       <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/templates/registration/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="590">
+              <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -87,8 +76,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="73" column="83" selection-start-line="73" selection-start-column="83" selection-end-line="73" selection-end-column="83" />
+            <state relative-caret-position="306">
+              <caret line="17" column="10" selection-start-line="3" selection-start-column="2" selection-end-line="17" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -114,24 +103,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="194">
+              <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/email.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="972">
-              <caret line="56" column="11" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -205,16 +182,16 @@
         <option value="$PROJECT_DIR$/projects/templates/project_apply.html" />
         <option value="$PROJECT_DIR$/projects/forms.py" />
         <option value="$PROJECT_DIR$/projects/templates/project_new.html" />
-        <option value="$PROJECT_DIR$/projects/templates/registration/signup.html" />
         <option value="$PROJECT_DIR$/subscription/__init__.py" />
         <option value="$PROJECT_DIR$/projects/email.py" />
         <option value="$PROJECT_DIR$/sendgrid.env" />
         <option value="$PROJECT_DIR$/projects/views.py" />
         <option value="$PROJECT_DIR$/projects/static/gigs_files/b8e219fb9ca2.css" />
-        <option value="$PROJECT_DIR$/projects/templates/project_list.html" />
         <option value="$PROJECT_DIR$/projects/static/css/styles.css" />
-        <option value="$PROJECT_DIR$/projects/templates/base.html" />
         <option value="$PROJECT_DIR$/projects/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/projects/templates/registration/signup.html" />
+        <option value="$PROJECT_DIR$/projects/templates/base.html" />
+        <option value="$PROJECT_DIR$/projects/templates/project_list.html" />
       </list>
     </option>
   </component>
@@ -675,7 +652,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04198895" sideWeight="0.5193929" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22872928" sideWeight="0.5193929" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -788,14 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1016,14 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/project_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="186" column="7" selection-start-line="186" selection-start-column="7" selection-end-line="186" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -1040,26 +1001,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/projects/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="73" column="83" selection-start-line="73" selection-start-column="83" selection-end-line="73" selection-end-column="83" />
+        <state relative-caret-position="194">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/templates/registration/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="590">
+          <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/registration/login.html">
+    <entry file="file://$PROJECT_DIR$/projects/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="17" column="10" selection-start-line="3" selection-start-column="2" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/templates/project_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="163" column="32" selection-start-line="163" selection-start-column="32" selection-end-line="163" selection-end-column="32" />
           <folding />
         </state>
       </provider>

@@ -12,12 +12,34 @@
           <div class="col-md-12">
             <p class="text-center">Create account</p>
 
+<!-- form signup -->
+             <form id="login-form" method="post" action="/accounts/register/">
+              {% csrf_token %}
+              <div class="form-group">
+                <p><label for="id_email">Username</label></p>
+                <input type="text" name="username" class="form-control" id="id_username"  tabindex="1" required="">
 
-    <form method="POST" class="post-form">
-       {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
+              </div>
+              <div class="form-group">
+                <p><label for="id_email">Email</label></p>
+                <input type="email" name="email" class="form-control" id="id_email" tabindex="1" required="">
+
+              </div>
+              <div class="form-group">
+                <p><label for="id_email">Password</label></p>
+                <input type="password" name="password" class="form-control" id="id_password" tabindex="1" required="">
+
+              </div>
+              <div class="form-group">
+                <p><label for="id_email">Password Confirmation</label></p>
+                <input type="password" name="password" class="form-control" id="id_password" tabindex="2" required="">
+              </div>
+                 <div class="white-space-10"></div>
+              <div class="form-group">
+               <a href="{% url 'project_list' %}"> <button type="submit" class="btn btn-theme btn-t-primary btn-block" tabindex="3" value="login">Sign Up</button></a>
+              </div>
+                 <div class="white-space-10"></div>
+            </form><!-- form login -->
 
           </div>
         </div>
