@@ -5,6 +5,7 @@ from .models import Project
 from django.utils import timezone
 from .forms import ProjectForm
 from .forms import RegistrationForm
+from .forms import SubscribeForm
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -12,7 +13,21 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib import messages
+import sendgrid
+import os
+from sendgrid.helpers.mail import *
 
+
+sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
+from_email = Email("teresa.wambugu@meltwater.org")
+to_email = Email("terrywaithira1@gmail.com")
+subject = "Sending with SendGrid is Fun"
+content = Content("text/plain", "and easy to do anywhere, even with Python")
+mail = Mail(from_email, subject, to_email, content)
+response = sg.client.mail.send.post(request_body=mail.get())
+print(response.status_code)
+print(response.body)
+print(response.headers)
 
 # Create your views here.
 class HomePageView(TemplateView):
@@ -41,6 +56,23 @@ def project_list(request):
 def project_detail(request, pk):
     project = get_object_or_404(Project, pk=pk)
     return render(request, 'project_detail.html', {'project': project})
+
+
+def project_apply(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    context = {'project': project}
+    return render(request, 'project_apply.html', context)
+
+
+def project_subscribe(request):
+    if request.method == "POST":
+        form = SubscribeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('project_list')
+    else:
+        form = SubscribeForm()
+    return render(request, 'project_apply.html', {'form': form})
 
 
 @login_required
@@ -81,12 +113,6 @@ def project_delete(request, pk):
     project = get_object_or_404(Project, pk=pk)
     project.delete()
     return redirect('project_list')
-
-
-def project_apply(request, pk):
-    project = get_object_or_404(Project, pk=pk)
-    context = {'project': project}
-    return render(request, 'project_apply.html', context)
 
 
 def register(request):

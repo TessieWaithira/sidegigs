@@ -3,7 +3,6 @@ from django.db import models
 from django.utils import timezone
 
 
-
 # Create your models here.
 class Project(models.Model):
     project_owner = models.ForeignKey('auth.User')
@@ -15,3 +14,7 @@ class Project(models.Model):
     class Meta:
         ordering = ["-created_date"]
 
+
+class Registered(models.Model):
+    email = models.EmailField()
+    category = models.CharField(max_length=50)

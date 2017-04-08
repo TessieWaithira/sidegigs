@@ -92,14 +92,13 @@
 
             {% endif %}
         </div>
-
                   <div class="box-list">
                      <div class="row">
                         <div class="item">
                            <div class="row">
-                              <div class="col-md-">
+                              <div class="col-md-12">
                                 {% for project in projects %}
-                                    <div class="text-center">
+                                    <div class="card text-center">
                                       {{ project.created_date }}
                                       {{ project.project_owner }}
 
