@@ -2,54 +2,50 @@
 {% block content %}
 <!-- body-content -->
 <div class="body-content clearfix">
-
 <div class="block-section bg-color4">
   <div class="container">
     <div class="panel panel-md">
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
-            <h3>Log In</h3>
-            <div class="white-space-30"></div>
+            <p>Log In</p>
 
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
+            {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
 
             <!-- form login -->
              <form id="login-form" method="post" action="/accounts/login/">
               {% csrf_token %}
-
               <div class="form-group">
                 <p><label for="id_email">Username</label></p>
                 <input type="text" name="username" class="form-control" id="id_username" tabindex="1" required="">
-
               </div>
               <div class="form-group">
                <p> <label for="id_email">Password</label></p>
                 <input type="password" name="password" class="form-control" id="id_password" tabindex="2" required="">
-
               </div>
               <div class="form-group">
                 <div class="row">
                   <div class="col-xs-12 text-right">
-                    <p class="text-center"><a href="https://www.remotepython.com/password/reset/">Forgot password?</a></p>
+                    <h4 class="text-center"><a href="password reset/">Forgot Password?</a></h4>
                   </div>
                 </div>
               </div>
               <div class="form-group no-margin">
                <a href="{% url 'project_list' %}"> <button type="submit" class="btn btn-theme  btn-t-primary btn-block" tabindex="3" value="login">Log In</button></a>
+                  <div class="white-space-15"></div>
               </div>
-
-            </form><!-- form login -->
-
+             </form><!-- form login -->
           </div>
         </div>
       </div>
     </div>
-
     <div class="white-space-20"></div>
     <div class="text-center color-white">Not a member? &nbsp;<a href="{% url 'register' %}"><strong class="color-white">Create an account!</strong></a></div>
   </div>
+</div>
+</div>
+    <div class="white-space-50"></div>
 {% endblock %}
 

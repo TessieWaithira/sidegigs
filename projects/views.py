@@ -6,28 +6,11 @@ from django.utils import timezone
 from .forms import ProjectForm
 from .forms import RegistrationForm
 from .forms import SubscribeForm
-from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.models import User
 from django.contrib import messages
-import sendgrid
-import os
-from sendgrid.helpers.mail import *
-
-
-sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
-from_email = Email("teresa.wambugu@meltwater.org")
-to_email = Email("terrywaithira1@gmail.com")
-subject = "Sending with SendGrid is Fun"
-content = Content("text/plain", "and easy to do anywhere, even with Python")
-mail = Mail(from_email, subject, to_email, content)
-response = sg.client.mail.send.post(request_body=mail.get())
-print(response.status_code)
-print(response.body)
-print(response.headers)
+from email import Sdk
 
 # Create your views here.
 class HomePageView(TemplateView):
@@ -118,6 +101,12 @@ def project_delete(request, pk):
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
+        send_to = request.POST['email']
+        username = request.POST['username']
+        email = Sdk('https://eddymens.herokuapp.com', '848c7058c4151ef9002361f9dc922dbb')
+        output = email.add_data('send_email', 'email',
+                                {'email': send_to, 'subject': 'Hi '+username, 'body': 'Thank you <b>soo</b> much for signing up'})
+        print output
         if form.is_valid():
             form.save()
             return redirect('project_list')

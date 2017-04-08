@@ -47,11 +47,14 @@ h2 {
 }
 .navbar { margin-bottom:0px !important; }
 .navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
-.navbar {min-height:32px !important}
+.navbar {min-height:50px !important}
 .carousel-caption { margin-top:0px !important }
 .carousel-caption{
   padding-bottom: 300px;
 
+}
+.navbar-fixed-bottom {
+min-height: 80px;
 }
 .header {padding-right: 0; padding-left: 0;}
 .position {
@@ -60,6 +63,9 @@ h2 {
 .row {
     margin-left: 40px;
     margin-right: 40px;
+}
+.panel-body{
+    background-color: white;
 }
 
 

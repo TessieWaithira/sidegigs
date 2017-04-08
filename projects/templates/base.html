@@ -33,9 +33,9 @@
                <div class="container">
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul class="nav navbar-nav">
-                        <li><a href="{% url 'project_list' %}"><b>Find Project</b> </a> </li>
-                        <li><a href="{% url 'project_new' %}"><b>Post Project</b></a></li>
-                        <li><a href="{% url 'login' %}"><b>Get Alerts</b></a> </li>
+                        <li><a href="{% url 'project_list' %}"><button class="btn btn-default">Find Project</button></a> </li>
+                        <li><a href="{% url 'project_new' %}"><button class="btn btn-default">Post Project</button></a> </li>
+                        <li><a href="{% url 'login' %}"><button class="btn btn-default">Get Alerts</button></a> </li>
                      </ul>
                      <ul class="nav navbar-nav navbar-right">
                         <li><a href="{% url 'login' %}"><button class="btn btn-default">Login</button></a> </li>
@@ -56,6 +56,30 @@
       </header><!-- end main-header -->
     {% block content %}
     {% endblock %}
+
+        <!-- main-footer -->
+      <footer class="main-footer navbar-fixed-bottom">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-6">
+                  <ul class="list-inline link-footer text-center-xs">
+                     <li><a href="https://twitter.com/Tessie_Waithira/">Home</a></li>
+                     <li><a href=https://twitter.com/Tessie_Waithira>About Us</a></li>
+                     <li><a href=https://twitter.com/Tessie_Waithira>Contact Us</a></li>
+                  </ul>
+               </div>
+               <div class="col-sm-6 ">
+                  <p class="text-center-xs hidden-lg hidden-md hidden-sm">Stay Connected</p>
+                  <div class="socials text-right text-center-xs">
+                     <a href="https://github.com/TessieWaithira"><i class="fa fa-2x fa-github"></i></a>
+                     <a href="https://twitter.com/Tessie_Waithira"><i class="fa fa-2x fa-twitter"></i></a>
+                     <a href="https://web.facebook.com/tessie.waithira"><i class="fa fa-2x fa-facebook"></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- end main-footer -->
 
    </body>
 </html>

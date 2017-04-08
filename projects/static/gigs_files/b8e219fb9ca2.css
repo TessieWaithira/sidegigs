@@ -8695,6 +8695,7 @@ a:focus {
   margin: 0;
   z-index: 1000;
   position: relative;
+  min-height: 100%;
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -8707,6 +8708,7 @@ a:focus {
   -ms-border-radius: 0 !important;
   -o-border-radius: 0 !important;
   border-radius: 0 !important;
+
 }
 .main-navbar .navbar-nav > li > a {
   font-weight: 300;

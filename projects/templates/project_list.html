@@ -29,7 +29,7 @@
          <!-- main-header -->
          <header class="main-header">
             <!-- main navbar -->
-            <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
+            <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs navbar-fixed-top">
                <div class="container">
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul class="nav navbar-nav">
@@ -46,6 +46,32 @@
                </div>
             </nav>
             <!-- end main navbar -->
+             <!-- mobile nav-bar -->
+             <div class="container">
+                <nav class="mobile-nav hidden-md hidden-lg">
+                    <a href="#" class="btn-nav-toogle" data-toggle="collapse" data-target=".navBarCollapse">
+                        <span class="bars"></span>Menu
+                    </a>
+                <div class="mobile-nav-block">
+                <h4>Navigation</h4>
+                <a href="#" class="btn-nav-toogle">
+                <span class="barsclose"></span>Close
+                </a>
+                <div class="collapse navbar-collapse navBarCollapse">
+                     <ul class="nav navbar-nav collapse navHeaderCollapse">
+                    <li><a href="{% url 'project_list' %}"><button class="btn btn-default">Find Jobs</button> </a> </li>
+                    <li><a href="{% url 'project_new' %}"><button class="btn btn-default">Post Project</button></a></li>
+                    <li><a href="{% url 'login' %}"><button class="btn btn-default">Get Alerts</button></a> </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'login' %}"><button class="btn btn-default">Login</button></a> </li>
+                    <li><a href="{% url 'register' %}"><button class="btn btn-default">Sign up</button></a></li>
+                </ul>
+                </div>
+                </nav>
+             </div>
+             <!-- end mobile navbar -->
+
 
                <div class="inner-hero-header">
                   <div class="container">
@@ -77,6 +103,7 @@
 
          </header>
          <!-- end main-header -->
+
          <!-- body-content -->
           <div class="body-content clearfix">
             <div class="block-section bg-color1">
@@ -87,7 +114,6 @@
                     <p class="text-center">Hello {{ user.username }} these are the available projects</p><br>
                     <a href="{% url 'project_new' %}"><button class="btn btn-t-primary btn-theme">Add Project</button></a>
                     <a href="{% url 'logout' %}"><button class="btn btn-t-primary btn-theme">Logout</button></a></br></br>
-
                 </div>
 
             {% endif %}
