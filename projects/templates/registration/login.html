@@ -19,11 +19,11 @@
               {% csrf_token %}
               <div class="form-group">
                 <p><label for="id_email">Username</label></p>
-                <input type="text" name="username" class="form-control" id="id_username" tabindex="1" required="">
+                <input type="text" name="username" class="form-control" id="id_username" tabindex="1" value="{{ username }}" required="">
               </div>
               <div class="form-group">
                <p> <label for="id_email">Password</label></p>
-                <input type="password" name="password" class="form-control" id="id_password" tabindex="2" required="">
+                <input type="password" name="password" class="form-control" id="id_password" tabindex="2" value="{{ password }}" required="">
               </div>
               <div class="form-group">
                 <div class="row">

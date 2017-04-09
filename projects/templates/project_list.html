@@ -28,13 +28,17 @@
                <div class="container">
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul class="nav navbar-nav">
-                        <li><a href="{% url 'project_list' %}"><h3>Find Jobs</h3> </a> </li>
-                        <li><a href="{% url 'project_new' %}"><h3>Post Project</h3></a></li>
-                        <li><a href="{% url 'login' %}"><h3>Get Alerts</h3></a> </li>
+                        <li><a href="{% url 'project_list' %}"><h4>Find Jobs</h4> </a> </li>
+                        <li><a href="{% url 'project_new' %}"><h4>Post Project</h4></a></li>
+                        <li><a href="{% url 'register' %}"><h4>Get Alerts</h4></a> </li>
                      </ul>
                      <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'login' %}"><h3>Login</h3></a> </li>
-                        <li><a href="{% url 'register' %}"><h3>Sign up</h3></a>
+                         {% if user.is_authenticated %}
+                          <li><a href="{% url 'logout' %}"><h4>Logout</h4></a> </li>
+                         {% else %}
+                        <li><a href="{% url 'login' %}"><h4>Login</h4></a> </li>
+                         {% endif %}
+                        <li><a href="{% url 'register' %}"><h4>Sign up</h4></a>
                     </li>
                      </ul>
                   </div>
@@ -56,7 +60,7 @@
                      <ul class="nav navbar-nav collapse navHeaderCollapse">
                     <li><a href="{% url 'project_list' %}"><button class="btn btn-default">Find Jobs</button> </a> </li>
                     <li><a href="{% url 'project_new' %}"><button class="btn btn-default">Post Project</button></a></li>
-                    <li><a href="{% url 'login' %}"><button class="btn btn-default">Get Alerts</button></a> </li>
+                    <li><a href="{% url 'register' %}"><button class="btn btn-default">Get Alerts</button></a> </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'login' %}"><button class="btn btn-default">Login</button></a> </li>
@@ -71,15 +75,16 @@
                <div class="inner-hero-header">
                   <div class="container">
                       <br>
-                     <h3 class="text-center">Sidegigs </h3>
+                     <h4 class="text-center">Sidegigs </h4>
                     <div class="relative">
-                        <i class="fa fa-globe ic-fade-globe"></i>
+
                         <!-- form search -->
                         <form class="form" action="" method="GET">
                            <div class="row text-center">
-                                 <div class="form-group">
+                                 <div class="form">
+
                                     <input name="q" placeholder="job title, skills" value="{{ request.GET.q }}">
-                                      <button class="btn btn-t-primary">Search</button>
+                                      <button class="btn btn-t-primary searchbutton">Search</button>
                                  </div>
                             </br>
                            </div>
@@ -96,14 +101,20 @@
 
          <!-- body-content -->
           <div class="body-content clearfix">
-            <div class="block-section bg-color1">
+            <div class=" bg-color1">
                <div class="container">
                <div class="page-header">
             {% if user.is_authenticated %}
                 <div class="text-center">
                     <p class="text-center">Hello {{ user.username }} these are the available projects</p>
-                    <a href="{% url 'project_new' %}"><button class="btn btn-t-primary btn-theme">Add Project</button></a>
-                    <a href="{% url 'logout' %}"><button class="btn btn-t-primary btn-theme">Logout</button></a></br></br>
+                    <a href="{% url 'project_new' %}"><button class="btn btn-t-primary searchbutton">Add Project</button></a>
+
+                </div>
+            {% else %}
+                <p class="text-center">We are a market place for projects. Bringing together project owners and developers</p>
+                <p class="text-center">Want to get alerts on available jobs?</p>
+                <div class="text-center">
+                     <a href="{% url 'register' %}"><button class="btn btn-t-primary searchbutton">Create account</button></a>
                 </div>
             {% endif %}
                 </div>

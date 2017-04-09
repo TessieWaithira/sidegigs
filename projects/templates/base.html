@@ -22,17 +22,21 @@
          <!-- main-header -->
          <header class="main-header">
             <!-- main navbar -->
-            <nav class="navbar navbar-inverse main-navbar hidden-sm hidden-xs">
+            <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs navbar-fixed-top">
                <div class="container">
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul class="nav navbar-nav">
-                        <li><a href="{% url 'project_list' %}"><button class="btn btn-default">Find Project</button></a> </li>
-                        <li><a href="{% url 'project_new' %}"><button class="btn btn-default">Post Project</button></a> </li>
-                        <li><a href="{% url 'login' %}"><button class="btn btn-default">Get Alerts</button></a> </li>
+                        <li><a href="{% url 'project_list' %}"><h4>Find Jobs</h4> </a> </li>
+                        <li><a href="{% url 'project_new' %}"><h4>Post Project</h4></a></li>
+                        <li><a href="{% url 'login' %}"><h4>Get Alerts</h4></a> </li>
                      </ul>
                      <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'login' %}"><button class="btn btn-default">Login</button></a> </li>
-                        <li><a href="{% url 'register' %}"><button class="btn btn-default">Sign up</button></a>
+                         {% if user.is_authenticated %}
+                          <li><a href="{% url 'logout' %}"><h4>Logout</h4></a> </li>
+                         {% else %}
+                        <li><a href="{% url 'login' %}"><h4>Login</h4></a> </li>
+                         {% endif %}
+                        <li><a href="{% url 'register' %}"><h4>Sign up</h4></a>
                     </li>
                      </ul>
                   </div>

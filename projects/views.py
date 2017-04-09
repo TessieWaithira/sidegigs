@@ -71,8 +71,11 @@ def project_new(request):
 
             messages.success(request, 'Post added successfully')
             return redirect('project_list')
+
     else:
         form = ProjectForm()
+        print form.errors
+
     return render(request, 'project_new.html', {'form': form})
 
 
@@ -88,8 +91,10 @@ def project_edit(request, pk):
             project.save()
             return redirect('project_list')
     else:
+        form = ProjectForm()
+        print form.errors
         context = {'project': project}
-    return render(request, 'project_edit.html', context)
+    return render(request, 'project_edit.html', {'project': project})
 
 
 @login_required
@@ -110,8 +115,10 @@ def register(request):
                                  'body': 'Thank you <b>soo</b> much for signing up'})
         print output
         if form.is_valid():
-            form.save()
+            new_user = form.save(commit=False)
+            new_user.save()
             return redirect('project_list')
     else:
         form = RegistrationForm()
+        print messages.error(request, "Error")
     return render(request, 'registration/signup.html', {'form': form})

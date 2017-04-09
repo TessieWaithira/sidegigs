@@ -4,36 +4,29 @@
     </div>
     <div class="container">
         <div class="row text-center">
-             <form method="POST" class="post-form">
+          <form method="POST" class="post-form" action="">
             {% csrf_token %}
           <div class="form-group">
               <p>Project Title*</p>
-            <input id="id_project_title" type="text" name="project_title" value="" class="form-control" placeholder="Example: Android/Web app">
+            <input id="id_project_title" type="text" name="project_title" value="{{ project.project_title }}" class="form-control" placeholder="Example: Android/Web app">
           </div>
-                 <div class="form-group">
-            <p>Category*
-                <select name="category" id="project_category">
-                  <option value="android">Android</option>
-                  <option value="web">Web</option>
-                  <option value="ui/ux">UI/UX</option>
-              </select>
-            </p>
-
+               <div class="form-group">
+              <p>Project Category*</p>
+            <input id="id_project_category" type="text" name="project_category" value="{{ project.project_category}}" class="form-control" placeholder="Example: Android/Web app">
           </div>
           <div class="form-group">
               <p>Short Description*</p>
-            <textarea cols="2" id="id_short_pitch" class="form-control" name="short_pitch" rows="10"> </textarea></p>
+            <textarea cols="2" id="id_short_pitch" class="form-control" name="short_pitch" value="{{ project.short_pitch }}" rows="10"> </textarea></p>
           </div>
 
 
           <div class="form-group">
-              <a href="{% url 'project_list' %}"></a><button type="submit" class="btn btn-t-primary btn-theme">Submit</button></a>
+              <a href="{% url 'project_list' %}"><button type="submit" class="btn btn-t-primary btn-theme">Submit</button></a>
           </div>
-        </form> <!-- End form post/update a job -->
-
+        </form>
         </div>
     </div>
-       <div class="white-space-50"></div>
+       <div class="white-space-50"></div
 
 {% endblock %}
 </div>

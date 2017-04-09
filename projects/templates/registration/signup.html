@@ -13,30 +13,27 @@
             <p class="text-center">Create account</p>
 
 <!-- form signup -->
-             <form id="login-form" method="post" action="/accounts/register/">
+             <form id="register-form" method="POST" action="">
               {% csrf_token %}
               <div class="form-group">
                 <p><label for="id_email">Username</label></p>
-                <input type="text" name="username" class="form-control" id="id_username"  tabindex="1" required="">
-
+                <input type="text" name="username" class="form-control" id="id_username" value="{{ new_user.username }}" tabindex="1" required="">
               </div>
               <div class="form-group">
                 <p><label for="id_email">Email</label></p>
-                <input type="email" name="email" class="form-control" id="id_email" tabindex="1" required="">
-
+                <input type="email" name="email" class="form-control" id="id_email" tabindex="1" value="{{ new_user.email }}" required="">
               </div>
               <div class="form-group">
                 <p><label for="id_email">Password</label></p>
-                <input type="password" name="password" class="form-control" id="id_password" tabindex="1" required="">
-
+                <input type="password" name="password" class="form-control" id="id_password" tabindex="1" value="{{ new_user.password }}" required="">
               </div>
               <div class="form-group">
                 <p><label for="id_email">Password Confirmation</label></p>
-                <input type="password" name="password" class="form-control" id="id_password" tabindex="2" required="">
+                <input type="password" name="password" class="form-control" id="id_password" value="{{ new_user.password }}" tabindex="2" required="">
               </div>
                  <div class="white-space-10"></div>
               <div class="form-group">
-               <a href="{% url 'project_list' %}"> <button type="submit" class="btn btn-theme btn-t-primary btn-block" tabindex="3" value="login">Sign Up</button></a>
+               <a href="{% url 'project_list' %}"> <button type="submit" class="btn btn-theme btn-t-primary btn-block" tabindex="3" value="register">Sign Up</button></a>
               </div>
                  <div class="white-space-10"></div>
             </form><!-- form login -->
@@ -50,6 +47,7 @@
     </div>
 
 {% endblock %}
+</div>
 </div>
 
 

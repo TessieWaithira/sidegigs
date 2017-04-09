@@ -24,7 +24,7 @@ p {
 .block-section {
 
     margin-bottom: 10px;
-    padding-bottom:10%;
+    padding-bottom:20%;
 }
 img {
   width: auto ;
@@ -71,25 +71,45 @@ min-height: 80px;
 }
 
 
-
 .footer
   {
-   background-color:#273140;
+   background-color:#2a3f54;
    position:fixed;
    bottom:0;
    height:2%;
   }
+.main-footer {
+    background: #2a3f54;
+    border-top: 0;
+}
+
+.search {
+                padding:8px 15px;
+                background: #23527c;
+                border:0px solid #dbdbdb;
+}
+.searchbutton {
+                position:relative;
+                padding:6px 15px;
+
+                background-color:#2a3f54;;
+                color:#fafafa;
+}
+.searchbutton:hover  {
+                background-color:#fafafa;
+                color:#207cca;
+}
 
 .card {
     /* Add shadows to create the "card" effect */
-    box-shadow: #23527c;
+    box-shadow: 0 10px 20px 0 #2a3f54;
     transition: 0.3s;
     border-color: #b52525;
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 /* Add some padding inside the card container */
