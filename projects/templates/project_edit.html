@@ -1,21 +1,22 @@
-<div xmlns="http://www.w3.org/1999/html">
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
 <div class="row text-center">
-
      <form method="POST" class="post-form">
         {% csrf_token %}
         <p><label for="id_project_title">Project title:</label> <input id="id_project_title" maxlength="50" name="project_title" type="text" class="form-control" value="{{ project.project_title }}" required /></p>
-<p><label for="id_short_pitch">Short pitch:</label> <textarea cols="40" id="id_short_pitch" name="short_pitch" rows="10" class="form-control" required>
-    {{ project.short_pitch }}
-</textarea></p>
-       <a href="{% url 'project_list' %}" ><button type="submit" class="save btn btn-t-primary btn-theme">Save</button></a>
-    </form>
+         <div class="form-group">
+              <p>Projects Category*</p>
+           <select name="project_category" class="form-control" value="{{ project.project_category }}">
+               <option value="Android">Android</option>
+               <option value="CMS">CMS</option>
+           </select>
+         </div>
+        <p><label for="id_short_pitch">Short pitch:</label> <textarea cols="40" id="id_short_pitch" name="short_pitch" rows="10" class="form-control" required>
+        {{ project.short_pitch }}
+        </textarea></p>
+        <a href="{% url 'project_list' %}" ><button type="submit" class="save btn btn-t-primary btn-theme">Save</button></a>
+     </form>
 </div>
-
 </div>
 {% endblock %}
-</div>
-
-

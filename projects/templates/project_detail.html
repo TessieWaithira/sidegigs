@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="container">
-    <div class="text-center">
-        <h1 class="text-center">{{ project.project_title|upper }}</h1>
-        <p>{{ project.short_pitch|linebreaksbr }}</p>
+    <div class="size text-center">
+    <br>
         {% if user.is_authenticated %}
         <div class="text-center">
              <a href="{% url 'project_edit' pk=project.pk %}"><button class="btn btn-t-primary btn-theme">Edit</button></a>
@@ -12,7 +12,13 @@
          {% else %}
              <a href="{% url 'project_apply' pk=project.pk %}"><button class="btn btn-theme btn-t-primary">Apply </button></a>
         {% endif %}
+    <h1 class="text-center">{{ project.project_title|upper }}</h1>
+     <p>{{ project.short_pitch|linebreaksbr }}</p>
+
+    <br><br><br>
+     <div class="white-space-100"></div>
         </div>
-    </div>
 </div>
+</div>
+
 {% endblock %}

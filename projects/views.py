@@ -11,6 +11,8 @@ from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from email import Sdk
+from django.contrib.auth.models import User
+
 
 
 # Create your views here.
@@ -34,6 +36,7 @@ def project_list(request):
         projects = paginator.page(1)
     except EmptyPage:
         projects = paginator.page(paginator.num_pages)
+    print projects
     return render(request, 'project_list.html', {'projects': projects})
 
 
@@ -84,18 +87,18 @@ def project_edit(request, pk):
     project = get_object_or_404(Project, pk=pk)
     if request.method == "POST":
         form = ProjectForm(request.POST, instance=project)
+        print form.errors
         if form.is_valid():
+            print "am valid"
             project = form.save(commit=False)
             project.project_owner = request.user
             project.created_date = timezone.now()
             project.save()
             return redirect('project_list')
-    else:
-        form = ProjectForm()
-        print form.errors
-        context = {'project': project}
-    return render(request, 'project_edit.html', {'project': project})
 
+    else:
+        form = ProjectForm(request.POST, instance=project)
+    return render(request, 'project_edit.html', {'project': project})
 
 @login_required
 def project_delete(request, pk):
@@ -106,18 +109,23 @@ def project_delete(request, pk):
 
 def register(request):
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        send_to = request.POST['email']
-        username = request.POST['username']
-        email = Sdk('https://eddymens.herokuapp.com', '848c7058c4151ef9002361f9dc922dbb')
-        output = email.add_data('send_email', 'email',
-                                {'email': send_to, 'subject': 'Hi ' + username,
-                                 'body': 'Thank you <b>soo</b> much for signing up'})
-        print output
-        if form.is_valid():
-            new_user = form.save(commit=False)
-            new_user.save()
-            return redirect('project_list')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+        email = request.POST.get('email')
+
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match.")
+        elif User.objects.filter(email=email).exists():
+            messages.error(request, "Email exists")
+        if True:
+            user = User()
+            user.username = request.POST.get('username')
+            user.email = request.POST.get('email')
+            if user.save():
+                user.set_password(password)
+            messages.success(request,
+                             "Successfully registered! Login to get started.")
+            return redirect('login')
     else:
         form = RegistrationForm()
         print messages.error(request, "Error")

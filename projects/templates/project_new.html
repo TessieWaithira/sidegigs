@@ -8,12 +8,15 @@
             {% csrf_token %}
           <div class="form-group">
               <p>Project Title*</p>
-            <input id="id_project_title" type="text" name="project_title" value="{{ project.project_title }}" class="form-control" placeholder="Example: Android/Web app">
+            <input id="id_project_title" type="text" name="project_title"  class="form-control" placeholder="Example: Android/Web app">
           </div>
                <div class="form-group">
-              <p>Project Category*</p>
-            <input id="id_project_category" type="text" name="project_category" value="{{ project.project_category}}" class="form-control" placeholder="Example: Android/Web app">
-          </div>
+              <p>Projects Category*</p>
+           <select name="project_category" class="form-control">
+               <option value="Android">Android</option>
+               <option value="CMS">CMS</option>
+           </select>
+               </div>
           <div class="form-group">
               <p>Short Description*</p>
             <textarea cols="2" id="id_short_pitch" class="form-control" name="short_pitch" value="{{ project.short_pitch }}" rows="10"> </textarea></p>

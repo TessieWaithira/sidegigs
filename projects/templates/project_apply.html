@@ -19,15 +19,17 @@
             <input id="id_email" type="text" name="email" value="" class="form-control" >
             <p class="text-center">Enter a category you want to receive job alerts on</p>
             <label for="id_category">Category*</label>
-              <select name="category">
+              <select name="category" class="form-control">
                   <option value="android">Android</option>
                   <option value="web">Web</option>
                   <option value="ui/ux">UI/UX</option>
               </select>
           </div>
+            <br>
+
 
           <div class="form-group text-center">
-                  <a href="{% url 'project_subscribe' pk=project.pk %}"><button class="btn btn-theme btn-t-primary">Subscribe </button></a>
+                  <a href="{% url 'project_list'%}"><button class="btn btn-theme btn-t-primary">Subscribe </button></a>
 
           </div>
         </form>
