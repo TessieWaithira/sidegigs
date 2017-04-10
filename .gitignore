@@ -92,7 +92,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
-/projects/static/gigs_files//b8e219fb9ca2.css
 #local settings
 /gigs/local_settings.py
 # static files
