@@ -9,8 +9,8 @@
      <p>{{ project.short_pitch|linebreaksbr }}</p>
         {% if user.is_authenticated %}
         <div class="text-center">
-             <a href="{% url 'project_edit' pk=project.pk %}"><button class="btn btn-t-primary btn-theme">Edit</button></a>
-        <a href="{% url 'project_delete' pk=project.pk %}"><button class="btn btn-theme btn-danger">Delete</button></a>
+             <a href="{% url 'project_edit' pk=project.pk %}"><button class="btn btn-t-primary btn-lg">Edit</button></a>
+        <a href="{% url 'project_delete' pk=project.pk %}"><button class="btn btn-lg btn-danger">Delete</button></a>
          {% else %}
              <a href="{% url 'project_apply' pk=project.pk %}"><button class="btn btn-lg btn-t-primary">Apply </button></a>
         {% endif %}

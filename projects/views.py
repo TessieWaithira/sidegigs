@@ -48,7 +48,23 @@ def project_detail(request, pk):
 def project_apply(request, pk):
     project = get_object_or_404(Project, pk=pk)
     if request.method == "POST":
-    return render(request, 'project_apply.html', context)
+        email = request.POST.get('email')
+        if User.objects.filter(email=email).exists():
+            messages.errors(request, "email exists")
+        if True:
+            user = User()
+            category = request.POST.get('category')
+            email = request.POST.get('email')
+            if user.save():
+                user.category(category)
+                user.email(email)
+                messages.success(request,
+                                 "Successfully subscribed.")
+            return redirect('project_list')
+    else:
+            form = RegistrationForm()
+            print messages.error(request, "Error")
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 def project_subscribe(request):
@@ -112,11 +128,14 @@ def register(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         email = request.POST.get('email')
+        username = request.POST.get('username')
 
         if password != confirm_password:
             messages.error(request, "Passwords do not match.")
         elif User.objects.filter(email=email).exists():
             messages.error(request, "Email exists")
+        elif User.objects.filter(username=username).exists():
+            messages.error(request, "Username taken")
         if True:
             user = User()
             user.username = request.POST.get('username')
