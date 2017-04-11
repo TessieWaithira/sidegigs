@@ -10,7 +10,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django_extensions',
-    'subscription',
     'projects',
     'django.contrib.sites',
     'django.contrib.admin',

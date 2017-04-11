@@ -47,7 +47,7 @@ def project_detail(request, pk):
 
 def project_apply(request, pk):
     project = get_object_or_404(Project, pk=pk)
-    context = {'project': project}
+    if request.method == "POST":
     return render(request, 'project_apply.html', context)
 
 

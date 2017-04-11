@@ -4,17 +4,20 @@
 	border: 0;
 } /*this is the reset style */
 body {
-	font-family: 'Raleway', sans-serif;
-	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 22px;
 	position: relative;
 	background-color: #FFF;
+    font-weight: 400;
+    line-height: 1.4em;
 }
 
 p {
     padding: 2%;
-    color: #4A4444;
+    color: #333333;
     text-align: justify;
     letter-spacing: 2px;
+    font-size: 18px;
 
 }
 .form-group {
@@ -26,37 +29,28 @@ p {
     margin-bottom: 10px;
     padding-bottom:20%;
 }
-img {
-  width: auto ;
-  max-width: 100% ;
-  height: auto ;
-}
 
 h3 {
 	color: white;
-    font-size: 22px;
-	letter-spacing: 2%;
+
+
+
+a {
+    color: #ffffff;
+    text-decoration: none;
 }
-h4 {
-	color: white;
-	letter-spacing: 1;
+.panel-body {
+ border-top: 1px solid #ddd;}
 }
-h2 {
-	color: black;
-	letter-spacing: 3px;
+.navbar { margin-bottom:0px !important;
+color: #2a3f54;
 }
-.navbar { margin-bottom:0px !important; }
 .navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
 .navbar {
     min-height:70px !important
 }
-.carousel-caption { margin-top:0px !important }
-.carousel-caption{
-  padding-bottom: 300px;
-
-}
 .navbar-fixed-bottom {
-min-height: 80px;
+        min-height: 80px;
 }
 .header {padding-right: 0; padding-left: 0;}
 .position {
@@ -82,9 +76,83 @@ min-height: 80px;
    bottom:0;
    height:2%;
   }
+
+.main-header {
+    background: #2a3f54;
+    border-top: 0;
+    min-height: 70px;
+}
+.navbar-default {
+    background-color: #2a3f54;
+}
+.navbar-default {
+    background-color: #F8F8F8 !important;
+    border-color: #E7E7E7;
+}
+a {
+color: #FFFFFF;
+     background-color: transparent;
+}
+.nav.pad {
+padding-top: 20px;
+}
+}
+.main-navbar {
+    min-height: 70px;
+    background: white;
+    border-top: 0;
+}
+.main-header .inner-hero-header {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 10;
+  bottom: 0;
+}
+.inner {
+    background: #2a3f54;
+    padding-top: 50px;
+}
+
 .main-footer {
     background: #2a3f54;
     border-top: 0;
+    padding-bottom: 20px;
+    padding-bottom: 40px;
+}
+.container-fluid.padding {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+.nav.links{
+    padding-left: 0;
+    padding-top: 30px;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.links li a {
+
+    color: white;
+    font-size: 20px;
+    padding-top: 30px;
+
+}
+.linksfooter a {
+    color: white;
+    padding-top: 20px;
+}
+.link-footer a {
+    padding-top: 20px;
+}
+.socials {
+    padding-top: 40px;
+    color: white;
+}
+.text-right {
+    padding-top: 20px;
 }
 
 .search {
@@ -95,9 +163,15 @@ min-height: 80px;
 .searchbutton {
                 position:relative;
                 padding:6px 15px;
-
+    height: 30px;
                 background-color:#2a3f54;;
                 color:#fafafa;
+}
+.searchbutton1 {
+    background-color: white;
+    width: 200px;
+    height: 30px;
+
 }
 .searchbutton:hover  {
                 background-color:#fafafa;
@@ -118,7 +192,7 @@ min-height: 80px;
 
 /* Add some padding inside the card container */
 .card2 {
-    padding: 2px 16px;
+    padding: 2px 16px 2px 16px;
     border-color: #00BFA5;
 
 }
@@ -126,68 +200,35 @@ min-height: 80px;
 .text {
 	color: white;
 }
+.list-inline li{
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+    padding-top: 30px;
+}
 
 .text-center {
 	text-align: center;
 }
 .text-center1 {
 	text-align: center;
-    background-color: #e1e1e1;
+    color: white;
     height: 10%;
 }
-.column1 {
-  background-color: #337ab7;
-}
-.column2 {
-	background-color: #00BFA5;
+.navbar-inverse {
+    background-color: #2a3f54 !important;
+
 }
 
-.carousel-inner > .item > img,
- .carousel-inner > .item > a > img {
-     display: block;
-     max-width: 100%;
-     width: 100%;
-     line-height: 1;
-     height: 800px !important;
- }
+
 .navbar-brand {
 	font-size: 35px;
 }
-.image {
-	height: 750px;
-	width: 100%;
-	z-index: 1;
-}
-
 .text {
 	text-align: center;
 	font-size: 135%;
 
-}
-.col1 {
-	background: #2979FF:
-	font-size:135%;
-}
-.col2 {
-	background: #2962FF:
-}
-/*-- start parallax --*/
-.parallax {
-	background-image: url(../img/four.jpg);
-	min-height: 500px;
-	background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 
-}
-.parallax-inner {
-    padding-top: 90px;
-    padding-bottom: 300px;
-}
-
-/*-- e
-nd parallax --*/
 @media screen and (max-width: 768px) {
 	 .img {
         width: 100%;

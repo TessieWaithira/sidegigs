@@ -5,15 +5,16 @@
 <div class="container">
     <div class="size text-center">
     <br>
+       <h1 class="text-center">{{ project.project_title|upper }}</h1>
+     <p>{{ project.short_pitch|linebreaksbr }}</p>
         {% if user.is_authenticated %}
         <div class="text-center">
              <a href="{% url 'project_edit' pk=project.pk %}"><button class="btn btn-t-primary btn-theme">Edit</button></a>
         <a href="{% url 'project_delete' pk=project.pk %}"><button class="btn btn-theme btn-danger">Delete</button></a>
          {% else %}
-             <a href="{% url 'project_apply' pk=project.pk %}"><button class="btn btn-theme btn-t-primary">Apply </button></a>
+             <a href="{% url 'project_apply' pk=project.pk %}"><button class="btn btn-lg btn-t-primary">Apply </button></a>
         {% endif %}
-    <h1 class="text-center">{{ project.project_title|upper }}</h1>
-     <p>{{ project.short_pitch|linebreaksbr }}</p>
+
 
     <br><br><br>
      <div class="white-space-100"></div>

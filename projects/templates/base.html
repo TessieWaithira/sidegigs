@@ -1,10 +1,11 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+   <head>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <script type="text/javascript" src="{%  static 'gigs_files/shares.json'  %}"></script><script type="text/javascript" src="{% static 'gigs_files/saved_resource' %}"></script><script type="text/javascript" src="{% static 'gigs_files/share' %}"></script><script type="text/javascript" src="{% static 'gigs_files/300lo.json' %}"></script><script type="text/javascript" src="{% static 'gigs_files/_ate.track.config_resp' %}"></script>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Job board and aggregator for programming jobs.Sign up today to post jobs, get job alerts, save job postings and add notes to them, and receive messages from potential employers.">
 
@@ -12,40 +13,73 @@
       <meta property="twitter:card" content="summary">
       <meta property="twitter:site" content="@remotepython">
       <title>Find remote Python jobs and developers. | RemotePython.com</title>
-      <link rel="stylesheet" href="{% static 'gigs_files/b8e219fb9ca2.css' %}" type="text/css">
       <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 
    </head>
    <body style="">
       <!-- wrapper page -->
-      <div class="wrapper">
+         <!-- wrapper page -->
+      <div class="container-fluid padding">
          <!-- main-header -->
          <header class="main-header">
             <!-- main navbar -->
-            <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs navbar-fixed-top">
+            <nav class="navbar main-navbar hidden-sm hidden-xs">
                <div class="container">
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                     <ul class="nav navbar-nav">
-                        <li><a href="{% url 'project_list' %}"><h4>Find Jobs</h4> </a> </li>
-                        <li><a href="{% url 'project_new' %}"><h4>Post Project</h4></a></li>
-                        <li><a href="{% url 'login' %}"><h4>Get Alerts</h4></a> </li>
+                     <ul class="nav links navbar-nav">
+                        <li><a href="{% url 'project_list' %}">Find Jobs </a> </li>
+                        <li><a href="{% url 'project_new' %}">Post Project</a></li>
+                        <li><a href="{% url 'register' %}">Get Alerts</a> </li>
                      </ul>
-                     <ul class="nav navbar-nav navbar-right">
+                     <ul class="nav links navbar-nav navbar-right">
                          {% if user.is_authenticated %}
-                          <li><a href="{% url 'logout' %}"><h4>Logout</h4></a> </li>
+                          <li><a href="{% url 'logout' %}">Logout</a> </li>
                          {% else %}
-                        <li><a href="{% url 'login' %}"><h4>Login</h4></a> </li>
+                        <li><a href="{% url 'login' %}">Login</a> </li>
                          {% endif %}
-                        <li><a href="{% url 'register' %}"><h4>Sign up</h4></a>
+                        <li><a href="{% url 'register' %}">Sign up</a>
                     </li>
                      </ul>
                   </div>
                </div>
             </nav>
             <!-- end main navbar -->
+             <!-- mobile nav-bar -->
+             <div class="container">
+                <nav class="mobile-nav hidden-md hidden-lg">
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">Menu</a>
+
+                <div class="mobile-nav-block">
+
+                <div class="collapse navbar-collapse navBarCollapse">
+                <ul class="nav navbar-nav collapse ">
+                    <li><a href="{% url 'project_list' %}"><button class="btn btn-default">Find Jobs</button> </a> </li>
+                    <li><a href="{% url 'project_new' %}"><button class="btn btn-default">Post Project</button></a></li>
+                    <li><a href="{% url 'register' %}"><button class="btn btn-default">Get Alerts</button></a> </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'login' %}"><button class="btn btn-default">Login</button></a> </li>
+                    <li><a href="{% url 'register' %}"><button class="btn btn-default">Sign up</button></a></li>
+                </ul>
+                </div>
+                </nav>
+             </div>
+
+
 <div class="container">
   <div class="white-space-50"></div>
-  <h3 class="text-center">Sidegigs</h3 class="text-center">
+  <h3 class="text-center1">Sidegigs</h3>
     <div class="white-space-50"></div>
 </div>
 
@@ -55,20 +89,20 @@
          <div class="white-space-100"></div>
     {% endblock %}
 
-        <!-- main-footer -->
-      <footer class="main-footer navbar-fixed-bottom">
+          <!-- main-footer -->
+      <footer class="main-footer ">
          <div class="container">
             <div class="row">
                <div class="col-sm-6">
-                  <ul class="list-inline link-footer text-center-xs">
-                     <li><a href="https://twitter.com/Tessie_Waithira/">Home</a></li>
+                  <ul class="list-inline links link-footer text-center">
+                     <li><a href="https://twitter.com/Tessie_Waithira/"><h4>Home</h4></a></li>
                      <li><a href=https://twitter.com/Tessie_Waithira>About Us</a></li>
                      <li><a href=https://twitter.com/Tessie_Waithira>Contact Us</a></li>
                   </ul>
                </div>
                <div class="col-sm-6 ">
-                  <p class="text-center-xs hidden-lg hidden-md hidden-sm">Stay Connected</p>
-                  <div class="socials text-right text-center-xs">
+
+                  <div class="socials linksfooter text-center">
                      <a href="https://github.com/TessieWaithira"><i class="fa fa-2x fa-github"></i></a>
                      <a href="https://twitter.com/Tessie_Waithira"><i class="fa fa-2x fa-twitter"></i></a>
                      <a href="https://web.facebook.com/tessie.waithira"><i class="fa fa-2x fa-facebook"></i></a>
@@ -78,6 +112,6 @@
          </div>
       </footer>
       <!-- end main-footer -->
-
+      <!-- end wrapper page -->
    </body>
 </html>
