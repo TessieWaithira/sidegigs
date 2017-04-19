@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div>
       <!-- body-content -->
-      <div class="body-content clearfix">
-
-<div class="bg-color1 block-section line-bottom">
   <div class="container">
+      <br><br>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
           <h2 class="text-center">
@@ -25,20 +22,12 @@
                   <option value="ui/ux">UI/UX</option>
               </select>
           </div>
-            <br>
-
-
           <div class="form-group text-center">
-                  <a href="{% url 'project_list'%}"><button class="btn btn-theme btn-t-primary">Subscribe </button></a>
-
+              <a href="{% url 'project_list'%}"><button class="btn btn-lg btn-primary">Subscribe </button></a>
           </div>
         </form>
       </div>
     </div>
   </div>
-</div>
-
-      </div><!--end body-content -->
-
-    </div>
+<!--end body-content -->
 {% endblock %}

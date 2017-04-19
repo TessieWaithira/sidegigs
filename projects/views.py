@@ -10,7 +10,6 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
-from email import Sdk
 from django.contrib.auth.models import User
 
 
@@ -50,21 +49,22 @@ def project_apply(request, pk):
     if request.method == "POST":
         email = request.POST.get('email')
         if User.objects.filter(email=email).exists():
-            messages.errors(request, "email exists")
+            messages.error(request, "email exists")
+        form = SubscribeForm(request.POST)
         if True:
             user = User()
-            category = request.POST.get('category')
-            email = request.POST.get('email')
+            user.category = request.POST.get('category')
+            user.email = request.POST.get('email')
             if user.save():
-                user.category(category)
-                user.email(email)
+                user.email = request.user
+                user.save()
                 messages.success(request,
                                  "Successfully subscribed.")
             return redirect('project_list')
     else:
-            form = RegistrationForm()
+            form = SubscribeForm()
             print messages.error(request, "Error")
-    return render(request, 'registration/signup.html', {'form': form})
+    return render(request, 'project_apply.html', {'form': form})
 
 
 def project_subscribe(request):
@@ -125,6 +125,7 @@ def project_delete(request, pk):
 
 def register(request):
     if request.method == 'POST':
+        form = RegistrationForm(request.POST)
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         email = request.POST.get('email')
@@ -137,7 +138,7 @@ def register(request):
         elif User.objects.filter(username=username).exists():
             messages.error(request, "Username taken")
         if True:
-            user = User()
+            user = User.objects.create_user(username, email, password)
             user.username = request.POST.get('username')
             user.email = request.POST.get('email')
             if user.save():

@@ -12,7 +12,7 @@
              <a href="{% url 'project_edit' pk=project.pk %}"><button class="btn btn-primary btn-lg">Edit</button></a>
         <a href="{% url 'project_delete' pk=project.pk %}"><button class="btn btn-lg btn-danger">Delete</button></a>
          {% else %}
-             <a href="{% url 'project_apply' pk=project.pk %}"><button class="btn btn-lg btn-t-primary">Apply </button></a>
+             <a href="{% url 'project_apply' pk=project.pk %}"><button class="btn btn-lg btn-primary">Apply </button></a>
         {% endif %}
 
 
