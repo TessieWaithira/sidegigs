@@ -27,8 +27,9 @@ def project_list(request):
         projects = projects.filter(Q(project_title__icontains=query) |
                                    Q(short_pitch__icontains=query)
                                    ).distinct()
+
+    page = request.GET.get('page', 1)
     paginator = Paginator(projects, 5)
-    page = request.GET.get('page')
     try:
         projects = paginator.page(page)
     except PageNotAnInteger:
