@@ -7,7 +7,7 @@
     <br>
        <h1 class="text-center">{{ project.project_title|upper }}</h1>
      <p>{{ project.short_pitch|linebreaksbr }}</p>
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated and user.id == project.project_owner_id %}
         <div class="text-center">
              <a href="{% url 'project_edit' pk=project.pk %}"><button class="btn btn-primary btn-lg">Edit</button></a>
         <a href="{% url 'project_delete' pk=project.pk %}"><button class="btn btn-lg btn-danger">Delete</button></a>

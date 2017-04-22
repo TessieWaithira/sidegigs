@@ -4,7 +4,8 @@
 <div class="row text-center">
      <form method="POST" class="post-form">
         {% csrf_token %}
-        <p><label for="id_project_title">Project title:</label> <input id="id_project_title" maxlength="50" name="project_title" type="text" class="form-control" value="{{ project.project_title }}" required /></p>
+       {% if project.project_owner %}
+            <p><label for="id_project_title">Project title:</label> <input id="id_project_title" maxlength="50" name="project_title" type="text" class="form-control" value="{{ project.project_title }}" required /></p>
          <div class="form-group">
               <p>Projects Category*</p>
            <select name="project_category" class="form-control" value="{{ project.project_category }}">
@@ -16,9 +17,9 @@
         {{ project.short_pitch }}
         </textarea></p>
         <a href="{% url 'project_list' %}" ><button type="submit" class="save btn btn-primary btn-lg">Save</button></a>
+       {% endif %}
      </form>
 </div>
 </div>
-  <div class="white-space-50"></div
+  <div class="white-space-50"></div>
 {% endblock %}
-</div>

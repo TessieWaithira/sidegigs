@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 
 
 
+
 # Create your views here.
 class HomePageView(TemplateView):
     def get(self, request):
@@ -47,6 +48,8 @@ def project_detail(request, pk):
 
 def project_apply(request, pk):
     project = get_object_or_404(Project, pk=pk)
+    if project.project_owner_id == request.user.id:
+        return redirect('project_list')
     if request.method == "POST":
         email = request.POST.get('email')
         if User.objects.filter(email=email).exists():
@@ -102,6 +105,8 @@ def project_new(request):
 @login_required
 def project_edit(request, pk):
     project = get_object_or_404(Project, pk=pk)
+    if project.project_owner_id != request.user.id :
+        return redirect('project_list')
     if request.method == "POST":
         form = ProjectForm(request.POST, instance=project)
         print form.errors
