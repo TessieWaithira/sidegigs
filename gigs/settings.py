@@ -1,10 +1,20 @@
 import os
+from decouple import config, Csv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = 'lmm!v0*p3c9jy4mx(o^gxf58%d^8ucpjfj*n)6aa66$nq9%$$e'
-DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=True, cast=bool)
+SOCIAL_AUTH_GITHUB_KEY = config('SOCIAL_AUTH_GITHUB_KEY')
+SOCIAL_AUTH_GITHUB_SECRET = config('SOCIAL_AUTH_GITHUB_SECRET')
+SOCIAL_AUTH_TWITTER_KEY = config('SOCIAL_AUTH_TWITTER_KEY')
+SOCIAL_AUTH_TWITTER_SECRET = config('SOCIAL_AUTH_TWITTER_SECRET')
+SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')
+
 
 
 
@@ -34,10 +44,11 @@ MIDDLEWARE_CLASSES = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
-SOCIAL_AUTH_GITHUB_KEY = 'd107cfe405f42f2526a9'
-SOCIAL_AUTH_GITHUB_SECRET = '72d9eca130288422ce54444267b13ac135d1e632'
-SOCIAL_AUTH_TWITTER_KEY = 'DZS57YgkJVAsU5meCXvTlCVao'
-SOCIAL_AUTH_TWITTER_SECRET = 'RNrL9GJwEHHFo5zOWR00AwcUjY3Pm3QJ1hYQirjOScWO8P2n1R'
+
+
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/settings/'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
@@ -116,9 +127,6 @@ DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['*']
-
-DEBUG = True
 
 try:
     from .local_settings import *

@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from projects import views as core_views
 
 urlpatterns = [
     url(r'^$', views.project_list, name='project_list'),
@@ -13,5 +14,6 @@ urlpatterns = [
     url(r'^project/(?P<pk>\d+)/subscribe/$', views.project_subscribe, name='project_subscribe'),
     url(r'^accounts/profile/$', views.project_list, name='project_list'),
     url(r'^accounts/register/$', views.register, name='register'),
-
+    url(r'^settings/$', core_views.settings, name='settings'),
+    url(r'^settings/password/$', core_views.password, name='password'),
 ]
